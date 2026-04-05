@@ -1,0 +1,2833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Nigerian Ports Authority — Powering Nigeria's Maritime Economy. Efficient, transparent, and modern port services for businesses and citizens."/>
+<meta name="keywords" content="Nigerian ports, cargo tracking Nigeria, port authority services, NPA, Lagos port, maritime Nigeria"/>
+<title>Nigerian Ports Authority — Powering Nigeria's Maritime Economy</title>
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"GovernmentOrganization",
+  "name":"Nigerian Ports Authority",
+  "alternateName":"NPA",
+  "url":"https://www.nigerianports.gov.ng",
+  "logo":"https://www.nigerianports.gov.ng/logo.png",
+  "description":"Federal Government Agency governing and operating the Ports in Nigeria.",
+  "address":{"@type":"PostalAddress","streetAddress":"26/28 Marina","addressLocality":"Lagos","addressCountry":"NG"},
+  "telephone":"+234-201-463-7496",
+  "email":"info@nigerianports.gov.ng",
+  "sameAs":["https://twitter.com/nigerianportsa","https://facebook.com/nigerianportsa"]
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --navy:       #0B2545;
+  --navy-dark:  #061830;
+  --navy-mid:   #1B3F6E;
+  --ocean:      #0369A1;
+  --ocean-light:#0EA5E9;
+  --amber:      #D97706;
+  --amber-light:#F59E0B;
+  --success:    #059669;
+  --bg:         #F8FAFC;
+  --surface:    #FFFFFF;
+  --border:     #E2E8F0;
+  --border-mid: #CBD5E1;
+  --text-1:     #0F172A;
+  --text-2:     #334155;
+  --text-3:     #64748B;
+  --text-4:     #94A3B8;
+  --radius-sm:  6px;
+  --radius:     12px;
+  --radius-lg:  20px;
+  --shadow-sm:  0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow:     0 4px 16px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.04);
+  --shadow-lg:  0 20px 50px rgba(0,0,0,.12), 0 4px 16px rgba(0,0,0,.06);
+  --nav-h:      72px;
+  --section-py: 96px;
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);color:var(--text-1);
+  line-height:1.6;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+button{cursor:pointer;border:none;background:none;font-family:inherit;}
+
+/* ═══════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════ */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--ocean);border-radius:4px;}
+
+/* ═══════════════════════════════════════════
+   UTILITY
+═══════════════════════════════════════════ */
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ocean);margin-bottom:16px;
+}
+.section-label::before{
+  content:'';width:20px;height:2px;background:var(--ocean);border-radius:2px;
+}
+h2.section-title{
+  font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,40px);
+  font-weight:800;color:var(--text-1);line-height:1.15;margin-bottom:16px;
+}
+p.section-sub{
+  font-size:17px;color:var(--text-3);max-width:560px;line-height:1.7;
+}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+.reveal-delay-3{transition-delay:.3s;}
+.reveal-delay-4{transition-delay:.4s;}
+.reveal-delay-5{transition-delay:.5s;}
+
+/* ═══════════════════════════════════════════
+   TOPBAR
+═══════════════════════════════════════════ */
+.topbar{
+  background:var(--navy-dark);color:rgba(255,255,255,.55);
+  font-size:12px;padding:8px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.topbar .container{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:6px;
+}
+.topbar a{color:rgba(255,255,255,.55);transition:color .2s;}
+.topbar a:hover{color:var(--amber-light);}
+.topbar-links{display:flex;gap:20px;}
+
+/* ═══════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════ */
+nav{
+  position:sticky;top:0;z-index:999;
+  height:var(--nav-h);
+  background:var(--navy);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  transition:box-shadow .3s;
+}
+nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.25);}
+.nav-inner{
+  height:100%;display:flex;align-items:center;
+  justify-content:space-between;gap:24px;
+}
+
+/* Logo */
+.nav-logo{display:flex;align-items:center;gap:14px;}
+.logo-shield{
+  width:46px;height:46px;border-radius:10px;
+  background:linear-gradient(135deg,var(--amber-light),var(--amber));
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.logo-shield svg{width:26px;height:26px;fill:#fff;}
+.logo-text{display:flex;flex-direction:column;line-height:1.1;}
+.logo-text strong{
+  font-family:'Syne',sans-serif;font-size:16px;font-weight:800;
+  color:#fff;letter-spacing:.5px;
+}
+.logo-text span{font-size:10px;color:rgba(255,255,255,.45);letter-spacing:1.5px;text-transform:uppercase;}
+
+/* Nav links */
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-links a{
+  padding:8px 14px;border-radius:var(--radius-sm);
+  color:rgba(255,255,255,.65);font-size:13.5px;font-weight:500;
+  transition:all .2s;white-space:nowrap;
+}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.08);}
+.nav-links a.active{color:#fff;}
+
+/* Search */
+.nav-search{
+  position:relative;display:flex;align-items:center;
+}
+.nav-search input{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);
+  border-radius:8px;padding:8px 38px 8px 14px;
+  color:#fff;font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;
+  width:220px;transition:all .3s;outline:none;
+}
+.nav-search input::placeholder{color:rgba(255,255,255,.35);}
+.nav-search input:focus{
+  background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);width:260px;
+}
+.nav-search button{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  color:rgba(255,255,255,.4);background:none;border:none;padding:0;
+  transition:color .2s;display:flex;
+}
+.nav-search button:hover{color:#fff;}
+
+/* CTA */
+.nav-cta{
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+}
+.btn-track{
+  padding:9px 20px;border-radius:8px;
+  background:linear-gradient(135deg,var(--amber-light),var(--amber));
+  color:#fff;font-size:13px;font-weight:700;
+  transition:all .2s;white-space:nowrap;letter-spacing:.2px;
+}
+.btn-track:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(217,119,6,.4);}
+
+/* Hamburger */
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  padding:6px;border-radius:6px;transition:background .2s;
+}
+.hamburger:hover{background:rgba(255,255,255,.08);}
+.hamburger span{
+  display:block;width:22px;height:2px;background:#fff;border-radius:2px;
+  transition:all .3s;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* Mobile menu */
+.mobile-menu{
+  position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;
+  background:var(--navy);z-index:998;
+  padding:24px;display:flex;flex-direction:column;gap:4px;
+  transform:translateX(-100%);transition:transform .35s cubic-bezier(.4,0,.2,1);
+  overflow-y:auto;
+}
+.mobile-menu.open{transform:none;}
+.mobile-menu a{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;border-radius:10px;
+  color:rgba(255,255,255,.7);font-size:15px;font-weight:500;
+  transition:all .2s;
+}
+.mobile-menu a:hover{background:rgba(255,255,255,.07);color:#fff;}
+.mobile-menu-search{
+  width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;padding:12px 16px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:15px;margin-bottom:8px;outline:none;
+}
+.mobile-menu-search::placeholder{color:rgba(255,255,255,.35);}
+.mobile-menu-cta{
+  margin-top:auto;padding:14px;border-radius:10px;text-align:center;
+  background:linear-gradient(135deg,var(--amber-light),var(--amber));
+  color:#fff;font-weight:700;font-size:15px;margin-top:24px;
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+#hero{
+  background:var(--navy);
+  position:relative;overflow:hidden;
+  padding:100px 0 80px;
+}
+.hero-bg-pattern{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle at 20% 80%, rgba(3,105,161,.3) 0%, transparent 50%),
+                   radial-gradient(circle at 80% 20%, rgba(217,119,6,.15) 0%, transparent 50%);
+}
+.hero-grid-lines{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size:48px 48px;
+}
+.hero-inner{
+  position:relative;display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.25);
+  border-radius:100px;padding:6px 16px;
+  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--ocean-light);margin-bottom:24px;
+}
+.hero-badge-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--ocean-light);animation:pulse-dot 2s infinite;
+}
+@keyframes pulse-dot{
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:.5;transform:scale(1.4);}
+}
+.hero h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(38px,5vw,60px);
+  font-weight:800;line-height:1.08;
+  color:#fff;margin-bottom:24px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--amber-light),var(--ocean-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  font-size:17px;color:rgba(255,255,255,.6);
+  line-height:1.75;max-width:460px;margin-bottom:40px;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
+.btn-hero-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:10px;
+  background:linear-gradient(135deg,var(--ocean-light),var(--ocean));
+  color:#fff;font-size:15px;font-weight:700;
+  transition:all .25s;
+}
+.btn-hero-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(3,105,161,.4);}
+.btn-hero-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;border-radius:10px;
+  background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.15);
+  color:#fff;font-size:15px;font-weight:600;
+  transition:all .25s;
+}
+.btn-hero-secondary:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);}
+.hero-stats{
+  display:flex;gap:32px;flex-wrap:wrap;
+  padding-top:32px;border-top:1px solid rgba(255,255,255,.08);
+}
+.hero-stat-item{}
+.hero-stat-num{
+  font-family:'Syne',sans-serif;font-size:28px;font-weight:800;
+  color:var(--amber-light);line-height:1;
+}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.45);margin-top:4px;letter-spacing:.5px;}
+
+/* Hero visual panel */
+.hero-visual{position:relative;}
+.hero-panel{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;padding:28px;backdrop-filter:blur(10px);
+}
+.panel-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:24px;padding-bottom:16px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.panel-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#fff;}
+.live-badge{
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:600;color:var(--success);
+  background:rgba(5,150,105,.12);border:1px solid rgba(5,150,105,.25);
+  padding:4px 10px;border-radius:100px;
+}
+.live-badge::before{
+  content:'';width:6px;height:6px;background:var(--success);
+  border-radius:50%;animation:pulse-dot 1.5s infinite;
+}
+.vessel-rows{display:flex;flex-direction:column;gap:12px;}
+.vessel-row{
+  display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;
+  padding:12px 14px;border-radius:10px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);
+  transition:background .2s;
+}
+.vessel-row:hover{background:rgba(255,255,255,.07);}
+.vessel-name{font-size:13px;font-weight:600;color:#fff;}
+.vessel-port{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px;}
+.vessel-status{
+  font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px;
+}
+.status-in{background:rgba(5,150,105,.15);color:#34D399;}
+.status-out{background:rgba(239,68,68,.12);color:#F87171;}
+.status-anc{background:rgba(217,119,6,.15);color:#FCD34D;}
+.vessel-time{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;color:rgba(255,255,255,.4);
+}
+.panel-footer{
+  margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.07);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.panel-footer-stat{text-align:center;}
+.panel-footer-num{
+  font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--ocean-light);
+}
+.panel-footer-label{font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px;}
+
+/* ═══════════════════════════════════════════
+   QUICK ACCESS
+═══════════════════════════════════════════ */
+#quick-access{
+  background:var(--surface);
+  padding:var(--section-py) 0;
+  border-bottom:1px solid var(--border);
+}
+.qa-header{text-align:center;margin-bottom:48px;}
+.qa-header p.section-sub{margin:0 auto;}
+.qa-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.qa-card{
+  display:flex;flex-direction:column;align-items:flex-start;
+  padding:28px 24px;border-radius:var(--radius-lg);
+  background:var(--bg);border:1.5px solid var(--border);
+  text-decoration:none;color:inherit;
+  transition:all .25s;position:relative;overflow:hidden;
+  cursor:pointer;
+}
+.qa-card::before{
+  content:'';position:absolute;inset:0;
+  background:var(--card-accent,var(--ocean));opacity:0;
+  transition:opacity .25s;
+}
+.qa-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--card-accent,var(--ocean));
+}
+.qa-card:hover::before{opacity:.04;}
+.qa-icon{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;font-size:24px;flex-shrink:0;
+  background:var(--icon-bg);
+}
+.qa-card-title{
+  font-family:'Syne',sans-serif;font-size:17px;font-weight:700;
+  color:var(--text-1);margin-bottom:8px;
+}
+.qa-card-desc{font-size:13.5px;color:var(--text-3);line-height:1.55;}
+.qa-arrow{
+  margin-top:auto;padding-top:16px;
+  color:var(--card-accent,var(--ocean));font-size:18px;font-weight:700;
+  transition:transform .2s;
+}
+.qa-card:hover .qa-arrow{transform:translateX(5px);}
+
+/* ═══════════════════════════════════════════
+   SERVICES
+═══════════════════════════════════════════ */
+#services{padding:var(--section-py) 0;background:var(--bg);}
+.services-layout{display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start;}
+.services-left{position:sticky;top:calc(var(--nav-h) + 24px);}
+.services-tabs{
+  display:flex;flex-direction:column;gap:4px;margin-top:32px;
+}
+.svc-tab{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 18px;border-radius:10px;
+  cursor:pointer;transition:all .2s;border:1.5px solid transparent;
+  font-size:14px;font-weight:600;color:var(--text-3);text-align:left;
+}
+.svc-tab-icon{font-size:20px;width:32px;text-align:center;}
+.svc-tab.active{
+  background:var(--surface);border-color:var(--border);
+  color:var(--navy);box-shadow:var(--shadow-sm);
+}
+.svc-tab.active .svc-tab-label{color:var(--ocean);}
+.services-panels{display:flex;flex-direction:column;gap:20px;}
+.svc-panel{
+  background:var(--surface);border-radius:var(--radius-lg);
+  border:1.5px solid var(--border);overflow:hidden;
+  transition:all .3s;
+}
+.svc-panel-header{
+  padding:24px 28px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background .2s;
+}
+.svc-panel-header:hover{background:var(--bg);}
+.svc-panel-title{
+  font-family:'Syne',sans-serif;font-size:17px;font-weight:700;
+  display:flex;align-items:center;gap:12px;
+}
+.svc-panel-chevron{transition:transform .3s;color:var(--text-4);font-size:18px;}
+.svc-panel.open .svc-panel-chevron{transform:rotate(180deg);}
+.svc-panel-body{
+  max-height:0;overflow:hidden;transition:max-height .4s ease;
+}
+.svc-panel.open .svc-panel-body{max-height:500px;}
+.svc-panel-content{
+  padding:0 28px 28px;
+  border-top:1px solid var(--border);padding-top:20px;
+}
+.svc-items{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.svc-item{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 14px;border-radius:8px;
+  background:var(--bg);font-size:13.5px;color:var(--text-2);
+  transition:all .2s;cursor:pointer;
+}
+.svc-item:hover{background:rgba(3,105,161,.06);color:var(--ocean);}
+.svc-item-dot{width:7px;height:7px;border-radius:50%;background:var(--ocean);flex-shrink:0;}
+
+/* ═══════════════════════════════════════════
+   LIVE PORT DATA
+═══════════════════════════════════════════ */
+#port-data{
+  background:var(--navy);color:#fff;
+  padding:var(--section-py) 0;
+  position:relative;overflow:hidden;
+}
+#port-data .hero-bg-pattern{pointer-events:none;}
+#port-data .hero-grid-lines{pointer-events:none;opacity:.5;}
+.port-data-inner{position:relative;}
+.port-data-header{text-align:center;margin-bottom:64px;}
+.port-data-header .section-label{color:var(--ocean-light);}
+.port-data-header .section-label::before{background:var(--ocean-light);}
+.port-data-header h2{color:#fff;}
+.port-data-header p{color:rgba(255,255,255,.55);margin:0 auto;}
+
+/* Stats cards */
+.stats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:20px;margin-bottom:48px;
+}
+.stat-card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius-lg);padding:28px 24px;
+  transition:all .25s;
+}
+.stat-card:hover{background:rgba(255,255,255,.08);transform:translateY(-3px);}
+.stat-card-icon{font-size:28px;margin-bottom:16px;}
+.stat-card-num{
+  font-family:'Syne',sans-serif;font-size:36px;font-weight:800;
+  color:var(--amber-light);line-height:1;margin-bottom:6px;
+}
+.stat-card-label{font-size:13px;color:rgba(255,255,255,.5);letter-spacing:.3px;}
+.stat-card-change{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:700;margin-top:8px;
+  padding:3px 8px;border-radius:100px;
+}
+.stat-up{background:rgba(5,150,105,.15);color:#34D399;}
+.stat-down{background:rgba(239,68,68,.12);color:#F87171;}
+
+/* Port list */
+.ports-list{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:20px;
+}
+.port-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius-lg);padding:24px;
+  display:flex;gap:16px;align-items:flex-start;
+  transition:all .25s;
+}
+.port-card:hover{background:rgba(255,255,255,.08);}
+.port-card-icon{
+  width:48px;height:48px;border-radius:12px;flex-shrink:0;
+  background:rgba(14,165,233,.15);border:1px solid rgba(14,165,233,.2);
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+}
+.port-card-info{flex:1;}
+.port-card-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;}
+.port-card-state{font-size:12px;color:rgba(255,255,255,.4);letter-spacing:.5px;margin-bottom:12px;}
+.port-card-metrics{display:flex;gap:20px;}
+.metric{text-align:center;}
+.metric-val{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;color:var(--ocean-light);}
+.metric-key{font-size:10px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.8px;}
+.port-card-status{
+  display:flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:600;margin-top:12px;
+}
+.dot{width:6px;height:6px;border-radius:50;}
+.dot-green{background:#34D399;}
+.dot-amber{background:#FCD34D;}
+
+/* ═══════════════════════════════════════════
+   NEWS & UPDATES
+═══════════════════════════════════════════ */
+#news{padding:var(--section-py) 0;background:var(--surface);}
+.news-header{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:48px;gap:20px;flex-wrap:wrap;
+}
+.news-header-right{display:flex;gap:10px;}
+.news-filter{
+  padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;
+  border:1.5px solid var(--border);background:transparent;color:var(--text-3);
+  cursor:pointer;transition:all .2s;
+}
+.news-filter.active,.news-filter:hover{border-color:var(--ocean);color:var(--ocean);}
+.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px;}
+.news-feature{
+  background:var(--bg);border-radius:var(--radius-lg);overflow:hidden;
+  border:1.5px solid var(--border);transition:all .25s;display:flex;flex-direction:column;
+}
+.news-feature:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.news-feature-img{
+  height:220px;
+  background:linear-gradient(135deg,var(--navy-mid),var(--ocean));
+  display:flex;align-items:center;justify-content:center;
+  font-size:64px;position:relative;overflow:hidden;
+}
+.news-feature-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(11,37,69,.8),transparent);
+}
+.news-feature-body{padding:24px;}
+.news-tag{
+  display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;padding:3px 10px;border-radius:100px;
+  margin-bottom:12px;
+}
+.tag-press{background:rgba(3,105,161,.1);color:var(--ocean);}
+.tag-ops{background:rgba(5,150,105,.1);color:var(--success);}
+.tag-policy{background:rgba(217,119,6,.1);color:var(--amber);}
+.news-feature-title{
+  font-family:'Syne',sans-serif;font-size:19px;font-weight:700;
+  color:var(--text-1);margin-bottom:10px;line-height:1.3;
+}
+.news-feature-excerpt{font-size:14px;color:var(--text-3);line-height:1.65;margin-bottom:16px;}
+.news-date{font-size:12px;color:var(--text-4);display:flex;align-items:center;gap:6px;}
+.news-sidebar{display:flex;flex-direction:column;gap:16px;}
+.news-card{
+  background:var(--bg);border-radius:var(--radius);
+  border:1.5px solid var(--border);padding:18px;
+  transition:all .25s;cursor:pointer;
+}
+.news-card:hover{border-color:var(--ocean);transform:translateX(3px);}
+.news-card-tag{margin-bottom:8px;}
+.news-card-title{
+  font-family:'Syne',sans-serif;font-size:14px;font-weight:700;
+  color:var(--text-1);margin-bottom:8px;line-height:1.35;
+}
+.news-card-date{font-size:11px;color:var(--text-4);}
+.news-view-all{
+  text-align:center;margin-top:40px;
+}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 28px;border-radius:10px;
+  border:1.5px solid var(--ocean);color:var(--ocean);
+  font-size:14px;font-weight:700;transition:all .25s;
+}
+.btn-outline:hover{background:var(--ocean);color:#fff;transform:translateY(-1px);}
+
+/* ═══════════════════════════════════════════
+   TRUST & TRANSPARENCY
+═══════════════════════════════════════════ */
+#trust{padding:var(--section-py) 0;background:var(--bg);}
+.trust-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:20px;margin-top:48px;
+}
+.trust-card{
+  background:var(--surface);border-radius:var(--radius-lg);
+  border:1.5px solid var(--border);padding:28px 24px;
+  transition:all .25s;
+}
+.trust-card:hover{border-color:var(--ocean);box-shadow:var(--shadow);transform:translateY(-3px);}
+.trust-icon{font-size:32px;margin-bottom:16px;}
+.trust-title{
+  font-family:'Syne',sans-serif;font-size:16px;font-weight:700;
+  color:var(--text-1);margin-bottom:8px;
+}
+.trust-desc{font-size:13.5px;color:var(--text-3);line-height:1.6;margin-bottom:16px;}
+.trust-link{
+  font-size:13px;font-weight:700;color:var(--ocean);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.trust-link:hover .trust-arrow{transform:translateX(4px);}
+.trust-arrow{transition:transform .2s;}
+
+/* ═══════════════════════════════════════════
+   DOCUMENT HUB
+═══════════════════════════════════════════ */
+#documents{padding:var(--section-py) 0;background:var(--surface);}
+.doc-search-row{
+  display:flex;gap:12px;margin-bottom:36px;flex-wrap:wrap;
+}
+.doc-search{
+  flex:1;min-width:240px;position:relative;
+}
+.doc-search input{
+  width:100%;padding:12px 16px 12px 44px;
+  border-radius:10px;border:1.5px solid var(--border);
+  font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);color:var(--text-1);outline:none;
+  transition:border-color .2s;
+}
+.doc-search input:focus{border-color:var(--ocean);}
+.doc-search-icon{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  color:var(--text-4);font-size:16px;pointer-events:none;
+}
+.doc-filter-btns{display:flex;gap:8px;flex-wrap:wrap;}
+.doc-btn{
+  padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;
+  border:1.5px solid var(--border);background:transparent;color:var(--text-3);
+  cursor:pointer;transition:all .2s;
+}
+.doc-btn.active,.doc-btn:hover{border-color:var(--ocean);color:var(--ocean);background:rgba(3,105,161,.05);}
+.doc-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+.doc-card{
+  background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius);
+  padding:20px;display:flex;gap:14px;align-items:flex-start;
+  transition:all .25s;cursor:pointer;
+}
+.doc-card:hover{border-color:var(--ocean);transform:translateY(-2px);box-shadow:var(--shadow);}
+.doc-icon{
+  width:44px;height:44px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.doc-pdf{background:rgba(239,68,68,.1);}
+.doc-word{background:rgba(3,105,161,.1);}
+.doc-excel{background:rgba(5,150,105,.1);}
+.doc-info{flex:1;}
+.doc-title{font-size:14px;font-weight:700;color:var(--text-1);margin-bottom:4px;line-height:1.35;}
+.doc-meta{display:flex;gap:12px;font-size:11px;color:var(--text-4);margin-top:6px;}
+.doc-size{font-family:'JetBrains Mono',monospace;}
+.doc-dl{
+  width:30px;height:30px;border-radius:8px;background:var(--ocean);
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  font-size:14px;flex-shrink:0;margin-top:4px;transition:background .2s;
+}
+.doc-card:hover .doc-dl{background:var(--navy);}
+
+/* ═══════════════════════════════════════════
+   MEDIA SECTION
+═══════════════════════════════════════════ */
+#media{padding:var(--section-py) 0;background:var(--bg);}
+.media-tabs{
+  display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap;
+}
+.media-tab{
+  padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;
+  border:1.5px solid var(--border);background:transparent;color:var(--text-3);
+  cursor:pointer;transition:all .2s;
+}
+.media-tab.active{
+  background:var(--navy);color:#fff;border-color:var(--navy);
+}
+.media-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.media-card{
+  border-radius:var(--radius-lg);overflow:hidden;
+  border:1.5px solid var(--border);background:var(--surface);
+  transition:all .25s;cursor:pointer;
+}
+.media-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.media-thumb{
+  height:180px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--navy-mid),var(--ocean));
+  display:flex;align-items:center;justify-content:center;
+}
+.media-play{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(255,255,255,.95);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;padding-left:3px;
+  box-shadow:0 8px 24px rgba(0,0,0,.3);
+  transition:transform .2s;
+}
+.media-card:hover .media-play{transform:scale(1.1);}
+.media-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(11,37,69,.7) 0%, transparent 50%);
+}
+.media-duration{
+  position:absolute;bottom:10px;right:10px;
+  background:rgba(0,0,0,.7);color:#fff;
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  padding:3px 8px;border-radius:4px;
+}
+.media-body{padding:18px;}
+.media-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--text-1);margin-bottom:6px;line-height:1.3;}
+.media-meta{font-size:12px;color:var(--text-4);}
+
+/* ═══════════════════════════════════════════
+   SOCIAL SHOWCASE
+═══════════════════════════════════════════ */
+#social{padding:var(--section-py) 0;background:var(--surface);}
+.social-grid{
+  display:grid;grid-template-columns:1fr 1.6fr;gap:48px;align-items:center;
+}
+.social-feeds{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.social-post{
+  background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius);
+  padding:16px;transition:all .25s;cursor:pointer;
+}
+.social-post:hover{border-color:var(--ocean);transform:translateY(-2px);}
+.social-post-header{
+  display:flex;align-items:center;gap:10px;margin-bottom:12px;
+}
+.social-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--ocean-light),var(--ocean));
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:#fff;
+}
+.social-handle{font-size:12px;font-weight:700;color:var(--text-2);}
+.social-platform{font-size:11px;color:var(--text-4);}
+.social-post-img{
+  height:120px;border-radius:8px;margin-bottom:12px;overflow:hidden;
+  background:linear-gradient(135deg,var(--navy-mid),var(--ocean));
+  display:flex;align-items:center;justify-content:center;font-size:36px;
+}
+.social-post-text{font-size:13px;color:var(--text-2);line-height:1.55;margin-bottom:10px;}
+.social-post-actions{
+  display:flex;gap:14px;font-size:12px;color:var(--text-4);
+}
+.social-follow-card{
+  background:var(--navy);color:#fff;border-radius:var(--radius-lg);padding:40px;
+}
+.social-follow-title{
+  font-family:'Syne',sans-serif;font-size:26px;font-weight:800;
+  margin-bottom:12px;
+}
+.social-follow-sub{color:rgba(255,255,255,.55);font-size:15px;margin-bottom:32px;line-height:1.65;}
+.social-platforms{display:flex;flex-direction:column;gap:14px;margin-bottom:32px;}
+.social-platform-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 18px;border-radius:10px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+  transition:background .2s;
+}
+.social-platform-row:hover{background:rgba(255,255,255,.1);}
+.social-platform-left{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:600;}
+.social-platform-count{font-family:'JetBrains Mono',monospace;font-size:13px;color:rgba(255,255,255,.5);}
+.btn-follow-all{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--ocean-light),var(--ocean));
+  color:#fff;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:700;
+  transition:all .2s;
+}
+.btn-follow-all:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(3,105,161,.4);}
+
+/* ═══════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════ */
+#contact{padding:var(--section-py) 0;background:var(--bg);}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+}
+.contact-cards{display:flex;flex-direction:column;gap:16px;}
+.contact-card{
+  background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);
+  padding:22px;display:flex;gap:16px;align-items:flex-start;
+  transition:all .25s;
+}
+.contact-card:hover{border-color:var(--ocean);transform:translateX(4px);}
+.contact-icon{
+  width:48px;height:48px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  background:rgba(3,105,161,.08);
+}
+.contact-info-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-4);margin-bottom:4px;}
+.contact-info-val{font-size:15px;font-weight:600;color:var(--text-1);margin-bottom:4px;}
+.contact-info-sub{font-size:13px;color:var(--text-3);}
+.contact-action{
+  margin-top:8px;display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;font-weight:700;color:var(--ocean);transition:gap .2s;
+}
+.contact-action:hover{gap:10px;}
+.contact-map{
+  border-radius:var(--radius-lg);overflow:hidden;
+  background:var(--surface);border:1.5px solid var(--border);
+}
+.map-placeholder{
+  height:300px;
+  background:linear-gradient(135deg,#e8f4fb 0%,#c7e3f5 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-size:14px;color:var(--text-3);gap:12px;
+}
+.map-pin{font-size:40px;}
+.map-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--text-1);}
+.map-address{font-size:13px;color:var(--text-3);text-align:center;line-height:1.5;}
+.map-directions{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 22px;border-radius:8px;background:var(--ocean);color:#fff;
+  font-size:13px;font-weight:700;margin-top:12px;transition:background .2s;
+}
+.map-directions:hover{background:var(--navy);}
+.offices-list{padding:20px 24px;border-top:1px solid var(--border);}
+.offices-title{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-4);margin-bottom:14px;}
+.offices-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.office-item{
+  padding:12px;border-radius:8px;background:var(--bg);
+  font-size:13px;color:var(--text-2);cursor:pointer;transition:all .2s;
+}
+.office-item:hover{background:rgba(3,105,161,.06);color:var(--ocean);}
+.office-item strong{display:block;font-weight:700;margin-bottom:2px;}
+.office-item span{font-size:11px;color:var(--text-4);}
+
+/* ═══════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════ */
+#cta{
+  background:var(--navy);padding:96px 0;
+  position:relative;overflow:hidden;
+}
+#cta .hero-bg-pattern,.hero-grid-lines{pointer-events:none;}
+.cta-inner{position:relative;text-align:center;}
+.cta-inner h2{
+  font-family:'Syne',sans-serif;font-size:clamp(32px,5vw,52px);
+  font-weight:800;color:#fff;margin-bottom:20px;line-height:1.1;
+}
+.cta-inner h2 em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--amber-light),var(--ocean-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.cta-inner p{color:rgba(255,255,255,.55);font-size:17px;max-width:500px;margin:0 auto 40px;line-height:1.7;}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn-cta-primary{
+  padding:15px 36px;border-radius:10px;
+  background:linear-gradient(135deg,var(--ocean-light),var(--ocean));
+  color:#fff;font-size:15px;font-weight:700;
+  transition:all .25s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-cta-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(3,105,161,.4);}
+.btn-cta-ghost{
+  padding:14px 32px;border-radius:10px;
+  border:1.5px solid rgba(255,255,255,.2);
+  color:#fff;font-size:15px;font-weight:600;
+  transition:all .25s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-cta-ghost:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.07);}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer{background:var(--navy-dark);color:rgba(255,255,255,.5);padding:64px 0 0;}
+.footer-inner{
+  display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;
+  gap:48px;padding-bottom:48px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.footer-brand .logo-text strong{color:#fff;}
+.footer-brand-desc{
+  font-size:13.5px;line-height:1.7;margin-top:16px;margin-bottom:24px;
+  color:rgba(255,255,255,.4);
+}
+.footer-socials{display:flex;gap:10px;}
+.footer-social{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+  transition:all .2s;
+}
+.footer-social:hover{background:var(--ocean);border-color:var(--ocean);}
+.footer-col-title{
+  font-family:'Syne',sans-serif;font-size:13px;font-weight:700;
+  color:#fff;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;
+}
+.footer-links{display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:13.5px;transition:color .2s;}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 0;flex-wrap:wrap;gap:12px;
+  font-size:12px;
+}
+.footer-bottom-links{display:flex;gap:20px;}
+.footer-bottom-links a{font-size:12px;transition:color .2s;}
+.footer-bottom-links a:hover{color:#fff;}
+
+/* ═══════════════════════════════════════════
+   WHATSAPP BUTTON
+═══════════════════════════════════════════ */
+.whatsapp-btn{
+  position:fixed;bottom:28px;right:28px;z-index:1000;
+  width:56px;height:56px;border-radius:50%;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(37,211,102,.4);
+  transition:all .25s;cursor:pointer;
+}
+.whatsapp-btn:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(37,211,102,.5);}
+.whatsapp-btn svg{width:28px;height:28px;fill:#fff;}
+.whatsapp-tooltip{
+  position:absolute;right:68px;top:50%;transform:translateY(-50%);
+  background:var(--text-1);color:#fff;font-size:12px;font-weight:600;
+  padding:6px 14px;border-radius:8px;white-space:nowrap;opacity:0;
+  transition:opacity .2s;pointer-events:none;
+}
+.whatsapp-btn:hover .whatsapp-tooltip{opacity:1;}
+
+/* ═══════════════════════════════════════════
+   ANNOUNCEMENT BAR
+═══════════════════════════════════════════ */
+.ann-bar{
+  background:linear-gradient(90deg,var(--navy-dark),var(--navy-mid));
+  color:#fff;font-size:13px;padding:10px 0;
+  display:flex;align-items:center;justify-content:center;gap:20px;
+  position:relative;overflow:hidden;
+}
+.ann-bar-inner{
+  display:flex;align-items:center;gap:12px;
+}
+.ann-pill{
+  background:var(--amber);color:#fff;font-size:10px;font-weight:800;
+  letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:100px;
+  flex-shrink:0;
+}
+.ann-bar-close{
+  position:absolute;right:20px;top:50%;transform:translateY(-50%);
+  color:rgba(255,255,255,.4);cursor:pointer;font-size:18px;
+  transition:color .2s;line-height:1;padding:4px;
+}
+.ann-bar-close:hover{color:#fff;}
+.ann-scroll{
+  overflow:hidden;flex:1;max-width:600px;
+}
+.ann-text{
+  display:inline-block;
+  animation:scroll-ann 20s linear infinite;
+  white-space:nowrap;
+  color:rgba(255,255,255,.8);
+}
+@keyframes scroll-ann{
+  0%{transform:translateX(100%);}
+  100%{transform:translateX(-100%);}
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:48px;}
+  .hero-visual{display:none;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .ports-list{grid-template-columns:1fr;}
+  .trust-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:32px;}
+  .services-layout{grid-template-columns:1fr;}
+  .services-left{position:static;}
+  .services-tabs{flex-direction:row;flex-wrap:wrap;}
+  .social-grid{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  :root{--section-py:64px;}
+  .topbar{display:none;}
+  nav{padding:0 20px;}
+  .nav-links,.nav-search,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .hero-inner{padding:0;}
+  #hero{padding:80px 0 60px;}
+  .hero-stats{gap:24px;}
+  .qa-grid{grid-template-columns:1fr 1fr;}
+  .news-grid{grid-template-columns:1fr;}
+  .news-header{flex-direction:column;align-items:flex-start;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr;}
+  .doc-grid{grid-template-columns:1fr 1fr;}
+  .media-grid{grid-template-columns:1fr 1fr;}
+  .social-feeds{grid-template-columns:1fr;}
+  .ports-list{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .container{padding:0 16px;}
+  .qa-grid{grid-template-columns:1fr;}
+  .trust-grid{grid-template-columns:1fr;}
+  .doc-grid{grid-template-columns:1fr;}
+  .media-grid{grid-template-columns:1fr;}
+  .hero-actions{flex-direction:column;}
+  .btn-hero-primary,.btn-hero-secondary{justify-content:center;}
+  .cta-buttons{flex-direction:column;align-items:center;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+}
+
+/* ═══════════════════════════════════════════
+   VIDEO MODAL
+═══════════════════════════════════════════ */
+.modal-overlay{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.88);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
+}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.video-modal-box{
+  width:100%;max-width:860px;
+  background:#000;border-radius:16px;overflow:hidden;
+  box-shadow:0 40px 80px rgba(0,0,0,.7);
+  transform:scale(.92);transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  position:relative;
+}
+.modal-overlay.open .video-modal-box{transform:scale(1);}
+.video-modal-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 20px;background:var(--navy-dark);
+}
+.video-modal-title{color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;}
+.modal-close-btn{
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(255,255,255,.1);border:none;cursor:pointer;
+  color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;
+  transition:background .2s;line-height:1;
+}
+.modal-close-btn:hover{background:rgba(255,255,255,.2);}
+.video-wrapper{
+  position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+}
+.video-wrapper iframe{
+  position:absolute;top:0;left:0;width:100%;height:100%;border:none;
+}
+
+/* ═══════════════════════════════════════════
+   TRACKING MODAL
+═══════════════════════════════════════════ */
+.track-modal-box{
+  width:100%;max-width:520px;
+  background:var(--surface);border-radius:20px;overflow:hidden;
+  box-shadow:0 40px 80px rgba(0,0,0,.5);
+  transform:translateY(30px) scale(.96);transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+.modal-overlay.open .track-modal-box{transform:none;}
+.track-modal-head{
+  background:var(--navy);padding:28px;
+  display:flex;justify-content:space-between;align-items:flex-start;
+}
+.track-modal-head h3{
+  font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;
+}
+.track-modal-head p{color:rgba(255,255,255,.5);font-size:13px;}
+.track-modal-body{padding:28px;}
+.track-input-group{margin-bottom:20px;}
+.track-input-group label{
+  display:block;font-size:12px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;color:var(--text-3);margin-bottom:8px;
+}
+.track-input-group input,.track-input-group select{
+  width:100%;padding:12px 16px;border-radius:10px;
+  border:1.5px solid var(--border);font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:14px;color:var(--text-1);background:var(--bg);outline:none;
+  transition:border-color .2s;
+}
+.track-input-group input:focus,.track-input-group select:focus{border-color:var(--ocean);}
+.track-input-group input::placeholder{color:var(--text-4);}
+.btn-track-submit{
+  width:100%;padding:14px;border-radius:10px;
+  background:linear-gradient(135deg,var(--ocean-light),var(--ocean));
+  color:#fff;font-size:15px;font-weight:700;border:none;cursor:pointer;
+  transition:all .25s;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-track-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(3,105,161,.4);}
+.track-result{
+  margin-top:20px;padding:16px;border-radius:10px;
+  background:rgba(5,150,105,.06);border:1.5px solid rgba(5,150,105,.2);
+  display:none;
+}
+.track-result.show{display:block;}
+.track-result-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--success);margin-bottom:10px;}
+.track-result-rows{display:flex;flex-direction:column;gap:8px;}
+.track-result-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;}
+.track-result-row span:first-child{color:var(--text-3);}
+.track-result-row span:last-child{font-weight:700;color:var(--text-1);}
+
+/* ═══════════════════════════════════════════
+   TOAST NOTIFICATION
+═══════════════════════════════════════════ */
+.toast-container{
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%);
+  z-index:10000;display:flex;flex-direction:column;gap:8px;align-items:center;
+  pointer-events:none;
+}
+.toast{
+  background:var(--navy);color:#fff;
+  padding:12px 24px;border-radius:100px;
+  font-size:13px;font-weight:600;
+  box-shadow:0 8px 24px rgba(0,0,0,.3);
+  display:flex;align-items:center;gap:10px;
+  animation:toastIn .35s ease forwards;
+  pointer-events:all;
+}
+.toast.exit{animation:toastOut .35s ease forwards;}
+@keyframes toastIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+@keyframes toastOut{from{opacity:1;transform:none;}to{opacity:0;transform:translateY(-10px);}}
+
+/* Media card cursor */
+.media-card{cursor:pointer;}
+.media-thumb{cursor:pointer;}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="ann-bar" id="annBar">
+  <div class="container" style="display:flex;align-items:center;gap:16px;width:100%;">
+    <div class="ann-pill">NEW</div>
+    <div class="ann-scroll">
+      <span class="ann-text">
+        🚢 Lekki Deep Sea Port now fully operational — Nigeria's deepest port, handling vessels up to 16m draft &nbsp;&nbsp;|&nbsp;&nbsp; 
+        📋 New Port Tariff Schedule effective January 2025 — Download now &nbsp;&nbsp;|&nbsp;&nbsp; 
+        ⚠️ NPA advises mariners: updated navigational safety guidelines for Lagos Harbour now in effect
+      </span>
+    </div>
+  </div>
+  <button class="ann-bar-close" onclick="document.getElementById('annBar').style.display='none'">✕</button>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <span>Federal Government of Nigeria | Federal Ministry of Marine & Blue Economy</span>
+    <div class="topbar-links">
+      <a href="#">Careers</a>
+      <a href="#">Tenders</a>
+      <a href="#">FOIA</a>
+      <a href="#">Accessibility</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="container nav-inner">
+    <!-- Logo -->
+    <a href="#" class="nav-logo">
+      <div class="logo-shield">
+        <svg viewBox="0 0 32 32">
+          <path d="M16 2L4 8v8c0 8 5.5 14 12 16 6.5-2 12-8 12-16V8L16 2z"/>
+          <path fill="#D97706" d="M12 14l3 3 6-6-1.5-1.5-4.5 4.5-1.5-1.5z"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <strong>Nigerian Ports Authority</strong>
+        <span>Est. 1954 · Federal Agency</span>
+      </div>
+    </a>
+
+    <!-- Links -->
+    <ul class="nav-links">
+      <li><a href="#quick-access">Services</a></li>
+      <li><a href="#port-data">Ports</a></li>
+      <li><a href="#documents">Documents</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- Search -->
+    <div class="nav-search">
+      <input type="text" placeholder="Search services, docs…" id="navSearch"/>
+      <button aria-label="Search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- CTA -->
+    <div class="nav-cta">
+      <button onclick="openTrackModal()" class="btn-track" style="font-family:'Plus Jakarta Sans',sans-serif;">Track Shipment →</button>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <input class="mobile-menu-search" type="text" placeholder="🔍  Search services, documents…"/>
+  <a href="#quick-access" onclick="closeMobile()">📦 &nbsp;Services</a>
+  <a href="#port-data" onclick="closeMobile()">⚓ &nbsp;Ports & Terminals</a>
+  <a href="#news" onclick="closeMobile()">📰 &nbsp;News & Updates</a>
+  <a href="#documents" onclick="closeMobile()">📄 &nbsp;Documents</a>
+  <a href="#trust" onclick="closeMobile()">🏛️ &nbsp;Regulations</a>
+  <a href="#contact" onclick="closeMobile()">📍 &nbsp;Contact</a>
+  <button onclick="openTrackModal();closeMobile();" class="mobile-menu-cta" style="font-family:'Plus Jakarta Sans',sans-serif;border:none;cursor:pointer;">Track Shipment →</button>
+</div>
+
+<!-- ═══════════════════════════════════════ HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <span class="hero-badge-dot"></span>
+          Nigeria's Port Authority since 1954
+        </div>
+        <h1 class="reveal reveal-delay-1">
+          Powering Nigeria's<br/><em>Maritime Economy</em>
+        </h1>
+        <p class="hero-sub reveal reveal-delay-2">
+          Efficient, transparent, and modern port services for businesses and citizens.
+          Nigeria's gateway to global trade — built for the future.
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <button onclick="openTrackModal()" class="btn-hero-primary" style="border:none;font-family:'Plus Jakarta Sans',sans-serif;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            Track Shipment
+          </button>
+          <a href="#quick-access" class="btn-hero-secondary">
+            Explore Services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+        <div class="hero-stats reveal reveal-delay-4">
+          <div class="hero-stat-item">
+            <div class="hero-stat-num" data-count="6">0</div>
+            <div class="hero-stat-label">Major Ports</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num" data-count="24">0</div>
+            <div class="hero-stat-label">Terminals</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num" data-count="1200">0</div>
+            <div class="hero-stat-label">Vessels/Month</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num" data-count="70">0</div>
+            <div class="hero-stat-label">Years of Service</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Panel -->
+      <div class="hero-visual reveal reveal-delay-3">
+        <div class="hero-panel">
+          <div class="panel-header">
+            <div class="panel-title">⚓ Live Vessel Tracker</div>
+            <div class="live-badge">LIVE</div>
+          </div>
+          <div class="vessel-rows">
+            <div class="vessel-row">
+              <div>
+                <div class="vessel-name">MV Atlantic Pioneer</div>
+                <div class="vessel-port">Lagos Port Complex</div>
+              </div>
+              <span class="vessel-status status-in">ARRIVED</span>
+              <span class="vessel-time">09:42</span>
+            </div>
+            <div class="vessel-row">
+              <div>
+                <div class="vessel-name">CMA CGM Lagos</div>
+                <div class="vessel-port">Tin Can Island Port</div>
+              </div>
+              <span class="vessel-status status-out">DEPARTED</span>
+              <span class="vessel-time">08:15</span>
+            </div>
+            <div class="vessel-row">
+              <div>
+                <div class="vessel-name">MSC Apapa Star</div>
+                <div class="vessel-port">Lekki Deep Sea Port</div>
+              </div>
+              <span class="vessel-status status-in">ARRIVED</span>
+              <span class="vessel-time">07:58</span>
+            </div>
+            <div class="vessel-row">
+              <div>
+                <div class="vessel-name">Bourbon Nigeria</div>
+                <div class="vessel-port">Onne Port Complex</div>
+              </div>
+              <span class="vessel-status status-anc">AT ANCHOR</span>
+              <span class="vessel-time">06:30</span>
+            </div>
+            <div class="vessel-row">
+              <div>
+                <div class="vessel-name">MV Delta Trader</div>
+                <div class="vessel-port">Delta Port, Warri</div>
+              </div>
+              <span class="vessel-status status-out">DEPARTED</span>
+              <span class="vessel-time">05:45</span>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="panel-footer-stat">
+              <div class="panel-footer-num">48</div>
+              <div class="panel-footer-label">Vessels Today</div>
+            </div>
+            <div class="panel-footer-stat">
+              <div class="panel-footer-num">12</div>
+              <div class="panel-footer-label">In Port</div>
+            </div>
+            <div class="panel-footer-stat">
+              <div class="panel-footer-num">5</div>
+              <div class="panel-footer-label">At Anchor</div>
+            </div>
+            <a href="#" style="color:rgba(255,255,255,.4);font-size:12px;font-weight:600;">
+              Full tracker →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ QUICK ACCESS -->
+<section id="quick-access">
+  <div class="container">
+    <div class="qa-header reveal">
+      <span class="section-label">Quick Access</span>
+      <h2 class="section-title">Everything You Need,<br/>One Click Away</h2>
+      <p class="section-sub">Access the most-used NPA services instantly. No waiting, no confusion.</p>
+    </div>
+    <div class="qa-grid">
+      <a class="qa-card reveal reveal-delay-1" style="--card-accent:#0369A1;--icon-bg:rgba(3,105,161,.1);" onclick="openTrackModal()" href="javascript:void(0)">
+        <div class="qa-icon">📦</div>
+        <div class="qa-card-title">Track Cargo</div>
+        <div class="qa-card-desc">Get real-time status on your shipment, bill of lading, and estimated arrival time.</div>
+        <div class="qa-arrow">→</div>
+      </a>
+      <a class="qa-card reveal reveal-delay-2" style="--card-accent:#059669;--icon-bg:rgba(5,150,105,.1);" href="#services">
+        <div class="qa-icon">⚓</div>
+        <div class="qa-card-title">Port Services</div>
+        <div class="qa-card-desc">Cargo operations, berth allocation, pilotage, and marine services for vessels.</div>
+        <div class="qa-arrow" style="color:#059669;">→</div>
+      </a>
+      <a class="qa-card reveal reveal-delay-3" style="--card-accent:#D97706;--icon-bg:rgba(217,119,6,.1);" href="#documents" onclick="setTimeout(()=>filterDocBtn(document.querySelector('[onclick*=tariff]'),'tariff'),400)">
+        <div class="qa-icon">💰</div>
+        <div class="qa-card-title">Tariffs & Fees</div>
+        <div class="qa-card-desc">Transparent port charges, dues, tariff schedules, and payment procedures.</div>
+        <div class="qa-arrow" style="color:#D97706;">→</div>
+      </a>
+      <a class="qa-card reveal reveal-delay-1" style="--card-accent:#7C3AED;--icon-bg:rgba(124,58,237,.1);" href="#trust">
+        <div class="qa-icon">📜</div>
+        <div class="qa-card-title">Regulations</div>
+        <div class="qa-card-desc">Port bylaws, marine notices, safety guidelines, and compliance frameworks.</div>
+        <div class="qa-arrow" style="color:#7C3AED;">→</div>
+      </a>
+      <a class="qa-card reveal reveal-delay-2" style="--card-accent:#0EA5E9;--icon-bg:rgba(14,165,233,.1);" href="https://www.nigerianports.gov.ng" target="_blank" rel="noopener">
+        <div class="qa-icon">🪪</div>
+        <div class="qa-card-title">Licenses & Permits</div>
+        <div class="qa-card-desc">Apply for operating licenses, security passes, and vendor accreditation online.</div>
+        <div class="qa-arrow" style="color:#0EA5E9;">→</div>
+      </a>
+      <a class="qa-card reveal reveal-delay-3" style="--card-accent:#DC2626;--icon-bg:rgba(220,38,38,.08);" href="#news">
+        <div class="qa-icon">📰</div>
+        <div class="qa-card-title">News & Notices</div>
+        <div class="qa-card-desc">Latest press releases, marine safety notices, and operational updates.</div>
+        <div class="qa-arrow" style="color:#DC2626;">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="services-layout">
+      <div class="services-left reveal">
+        <span class="section-label">Our Services</span>
+        <h2 class="section-title">Full-Spectrum Port Services</h2>
+        <p class="section-sub">From cargo operations to marine safety — NPA provides comprehensive port management.</p>
+        <div class="services-tabs">
+          <button class="svc-tab active" onclick="setTab(this)">
+            <span class="svc-tab-icon">🚢</span>
+            <span class="svc-tab-label">Cargo & Operations</span>
+          </button>
+          <button class="svc-tab" onclick="setTab(this)">
+            <span class="svc-tab-icon">⚓</span>
+            <span class="svc-tab-label">Marine Services</span>
+          </button>
+          <button class="svc-tab" onclick="setTab(this)">
+            <span class="svc-tab-icon">🏗️</span>
+            <span class="svc-tab-label">Infrastructure</span>
+          </button>
+          <button class="svc-tab" onclick="setTab(this)">
+            <span class="svc-tab-icon">🛡️</span>
+            <span class="svc-tab-label">Security</span>
+          </button>
+        </div>
+      </div>
+      <div class="services-panels reveal reveal-delay-2">
+        <!-- Panel 1 -->
+        <div class="svc-panel open">
+          <div class="svc-panel-header" onclick="togglePanel(this)">
+            <div class="svc-panel-title">🚢 Cargo Handling & Logistics</div>
+            <span class="svc-panel-chevron">⌄</span>
+          </div>
+          <div class="svc-panel-body">
+            <div class="svc-panel-content">
+              <div class="svc-items">
+                <div class="svc-item"><span class="svc-item-dot"></span>Container terminal operations</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Bulk cargo handling</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Break-bulk cargo services</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Roll-on / Roll-off (RoRo)</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Barge & lighter services</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Reefer cargo handling</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Panel 2 -->
+        <div class="svc-panel">
+          <div class="svc-panel-header" onclick="togglePanel(this)">
+            <div class="svc-panel-title">⚓ Marine & Harbour Services</div>
+            <span class="svc-panel-chevron">⌄</span>
+          </div>
+          <div class="svc-panel-body">
+            <div class="svc-panel-content">
+              <div class="svc-items">
+                <div class="svc-item"><span class="svc-item-dot"></span>Pilotage services</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Towage & mooring</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Hydrographic surveys</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Bunkering operations</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Ship chandling</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Pollution control</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Panel 3 -->
+        <div class="svc-panel">
+          <div class="svc-panel-header" onclick="togglePanel(this)">
+            <div class="svc-panel-title">📋 Licensing & Regulation</div>
+            <span class="svc-panel-chevron">⌄</span>
+          </div>
+          <div class="svc-panel-body">
+            <div class="svc-panel-content">
+              <div class="svc-items">
+                <div class="svc-item"><span class="svc-item-dot"></span>Terminal operator licenses</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Stevedore accreditation</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Shipping agent licensing</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Concession management</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Tariff administration</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Port bylaws enforcement</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Panel 4 -->
+        <div class="svc-panel">
+          <div class="svc-panel-header" onclick="togglePanel(this)">
+            <div class="svc-panel-title">🛡️ Safety & Security</div>
+            <span class="svc-panel-chevron">⌄</span>
+          </div>
+          <div class="svc-panel-body">
+            <div class="svc-panel-content">
+              <div class="svc-items">
+                <div class="svc-item"><span class="svc-item-dot"></span>ISPS Code compliance</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Access pass issuance</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>CCTV & surveillance</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Fire & emergency response</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Maritime law enforcement</div>
+                <div class="svc-item"><span class="svc-item-dot"></span>Environmental protection</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ LIVE PORT DATA -->
+<section id="port-data">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="container port-data-inner">
+    <div class="port-data-header reveal">
+      <span class="section-label">Live Port Data</span>
+      <h2 class="section-title">Nigeria's Ports at a Glance</h2>
+      <p class="section-sub">Real-time performance metrics, throughput data, and vessel activity across all major Nigerian ports.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="stat-card-icon">🚢</div>
+        <div class="stat-card-num" data-count="1247">0</div>
+        <div class="stat-card-label">Vessels Handled (This Month)</div>
+        <div class="stat-card-change stat-up">↑ 8.3% vs last month</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="stat-card-icon">📦</div>
+        <div class="stat-card-num" data-count="4.2" data-suffix="M MT">0</div>
+        <div class="stat-card-label">Cargo Throughput (Tonnes)</div>
+        <div class="stat-card-change stat-up">↑ 12.1% YoY growth</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="stat-card-icon">⏱️</div>
+        <div class="stat-card-num" data-count="48" data-suffix="hrs">0</div>
+        <div class="stat-card-label">Average Port Dwell Time</div>
+        <div class="stat-card-change stat-up">↓ 18% improvement</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-4">
+        <div class="stat-card-icon">💼</div>
+        <div class="stat-card-num" data-count="24">0</div>
+        <div class="stat-card-label">Operational Terminals</div>
+        <div class="stat-card-change stat-up">+2 new in 2024</div>
+      </div>
+    </div>
+
+    <div class="ports-list">
+      <div class="port-card reveal reveal-delay-1">
+        <div class="port-card-icon">🏙️</div>
+        <div class="port-card-info">
+          <div class="port-card-name">Lagos Port Complex</div>
+          <div class="port-card-state">APAPA, LAGOS STATE</div>
+          <div class="port-card-metrics">
+            <div class="metric">
+              <div class="metric-val">312</div>
+              <div class="metric-key">Vessels/Mo</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">16</div>
+              <div class="metric-key">Berths</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">-16m</div>
+              <div class="metric-key">Draft</div>
+            </div>
+          </div>
+          <div class="port-card-status">
+            <span class="dot dot-green" style="border-radius:50%;width:6px;height:6px;background:#34D399;display:inline-block;"></span>
+            <span style="color:#34D399;font-size:12px;font-weight:600;">Operational — Normal</span>
+          </div>
+        </div>
+      </div>
+      <div class="port-card reveal reveal-delay-2">
+        <div class="port-card-icon">🌊</div>
+        <div class="port-card-info">
+          <div class="port-card-name">Lekki Deep Sea Port</div>
+          <div class="port-card-state">LEKKI, LAGOS STATE</div>
+          <div class="port-card-metrics">
+            <div class="metric">
+              <div class="metric-val">186</div>
+              <div class="metric-key">Vessels/Mo</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">5</div>
+              <div class="metric-key">Berths</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">-16.5m</div>
+              <div class="metric-key">Draft</div>
+            </div>
+          </div>
+          <div class="port-card-status">
+            <span style="width:6px;height:6px;border-radius:50%;background:#34D399;display:inline-block;"></span>
+            <span style="color:#34D399;font-size:12px;font-weight:600;">Operational — High Traffic</span>
+          </div>
+        </div>
+      </div>
+      <div class="port-card reveal reveal-delay-3">
+        <div class="port-card-icon">🏗️</div>
+        <div class="port-card-info">
+          <div class="port-card-name">Tin Can Island Port</div>
+          <div class="port-card-state">APAPA, LAGOS STATE</div>
+          <div class="port-card-metrics">
+            <div class="metric">
+              <div class="metric-val">244</div>
+              <div class="metric-key">Vessels/Mo</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">12</div>
+              <div class="metric-key">Berths</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">-11m</div>
+              <div class="metric-key">Draft</div>
+            </div>
+          </div>
+          <div class="port-card-status">
+            <span style="width:6px;height:6px;border-radius:50%;background:#FCD34D;display:inline-block;"></span>
+            <span style="color:#FCD34D;font-size:12px;font-weight:600;">Operational — Minor Delay</span>
+          </div>
+        </div>
+      </div>
+      <div class="port-card reveal reveal-delay-4">
+        <div class="port-card-icon">🛢️</div>
+        <div class="port-card-info">
+          <div class="port-card-name">Onne Port Complex</div>
+          <div class="port-card-state">RIVERS STATE</div>
+          <div class="port-card-metrics">
+            <div class="metric">
+              <div class="metric-val">210</div>
+              <div class="metric-key">Vessels/Mo</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">14</div>
+              <div class="metric-key">Berths</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">-12m</div>
+              <div class="metric-key">Draft</div>
+            </div>
+          </div>
+          <div class="port-card-status">
+            <span style="width:6px;height:6px;border-radius:50%;background:#34D399;display:inline-block;"></span>
+            <span style="color:#34D399;font-size:12px;font-weight:600;">Operational — Normal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ NEWS -->
+<section id="news">
+  <div class="container">
+    <div class="news-header">
+      <div class="reveal">
+        <span class="section-label">News & Updates</span>
+        <h2 class="section-title">Latest from NPA</h2>
+      </div>
+      <div class="news-header-right reveal">
+        <button class="news-filter active">All</button>
+        <button class="news-filter">Press Releases</button>
+        <button class="news-filter">Operations</button>
+        <button class="news-filter">Policy</button>
+      </div>
+    </div>
+    <div class="news-grid">
+      <div class="news-feature reveal">
+        <div class="news-feature-img">
+          <span style="position:relative;z-index:1;font-size:72px;">🚢</span>
+          <div class="news-feature-img-overlay"></div>
+        </div>
+        <div class="news-feature-body">
+          <span class="news-tag tag-press">Press Release</span>
+          <div class="news-feature-title">NPA & NSW as Catalysts for New Era of Trade — Port Modernisation Drive Gains Momentum</div>
+          <div class="news-feature-excerpt">The Nigerian Ports Authority has launched a comprehensive port modernisation initiative, positioning the National Single Window as a cornerstone of its digital transformation. The programme aims to reduce dwell time by 40% and improve cargo processing efficiency across all terminals.</div>
+          <div class="news-date">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            April 2, 2025 &nbsp;·&nbsp; NPA Communications
+          </div>
+        </div>
+      </div>
+      <div class="news-sidebar">
+        <div class="news-card reveal reveal-delay-1">
+          <div class="news-card-tag"><span class="news-tag tag-ops">Operations</span></div>
+          <div class="news-card-title">Lekki Deep Sea Port Records 186 Vessel Calls in Q1 2025</div>
+          <div class="news-card-date">March 28, 2025</div>
+        </div>
+        <div class="news-card reveal reveal-delay-2">
+          <div class="news-card-tag"><span class="news-tag tag-policy">Policy</span></div>
+          <div class="news-card-title">New Port Tariff Schedule Effective January 2025 — Full Breakdown</div>
+          <div class="news-card-date">March 20, 2025</div>
+        </div>
+        <div class="news-card reveal reveal-delay-3">
+          <div class="news-card-tag"><span class="news-tag tag-press">Press Release</span></div>
+          <div class="news-card-title">NPA MD Dantsoho Highlights Maritime Safety Improvements at IMO Forum</div>
+          <div class="news-card-date">March 14, 2025</div>
+        </div>
+        <div class="news-card reveal reveal-delay-4">
+          <div class="news-card-tag"><span class="news-tag tag-ops">Operations</span></div>
+          <div class="news-card-title">Dwell Time at Lagos Ports Drops to 48hrs — Lowest in a Decade</div>
+          <div class="news-card-date">March 8, 2025</div>
+        </div>
+        <div class="news-card reveal reveal-delay-5">
+          <div class="news-card-tag"><span class="news-tag tag-policy">Policy</span></div>
+          <div class="news-card-title">NPA Launches Online Licensing Portal for Vessel Operators</div>
+          <div class="news-card-date">February 27, 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="news-view-all reveal">
+      <a href="#" class="btn-outline">View All News →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ TRUST & TRANSPARENCY -->
+<section id="trust">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:12px;">
+      <span class="section-label">Governance</span>
+      <h2 class="section-title">Transparency & Accountability</h2>
+      <p class="section-sub" style="margin:0 auto;">NPA operates under the highest standards of regulatory transparency, public disclosure, and institutional integrity.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card reveal reveal-delay-1">
+        <div class="trust-icon">📜</div>
+        <div class="trust-title">Port Regulations</div>
+        <div class="trust-desc">Official bylaws, statutory instruments, and operational regulations governing all port activities.</div>
+        <a href="https://www.nigerianports.gov.ng/regulations" target="_blank" rel="noopener" class="trust-link">Browse Regulations <span class="trust-arrow">→</span></a>
+      </div>
+      <div class="trust-card reveal reveal-delay-2">
+        <div class="trust-icon">📊</div>
+        <div class="trust-title">Annual Reports</div>
+        <div class="trust-desc">Comprehensive financial statements, performance data, and strategic activity reports by year.</div>
+        <a href="https://www.nigerianports.gov.ng/annual-reports" target="_blank" rel="noopener" class="trust-link">View Reports <span class="trust-arrow">→</span></a>
+      </div>
+      <div class="trust-card reveal reveal-delay-3">
+        <div class="trust-icon">🏛️</div>
+        <div class="trust-title">Public Notices</div>
+        <div class="trust-desc">Official FOIA disclosures, tenders, procurement notices, and public interest announcements.</div>
+        <a href="https://www.nigerianports.gov.ng/public-notices" target="_blank" rel="noopener" class="trust-link">See Notices <span class="trust-arrow">→</span></a>
+      </div>
+      <div class="trust-card reveal reveal-delay-4">
+        <div class="trust-icon">🤝</div>
+        <div class="trust-title">Concession Agreements</div>
+        <div class="trust-desc">Terminal concession frameworks, operator obligations, and performance benchmarks.</div>
+        <a href="https://www.nigerianports.gov.ng/concessions" target="_blank" rel="noopener" class="trust-link">Read Agreements <span class="trust-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ DOCUMENT HUB -->
+<section id="documents">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Document Hub</span>
+      <h2 class="section-title">Download Official Documents</h2>
+      <p class="section-sub">Access guidelines, tariff sheets, regulations, and operational forms — all in one place.</p>
+    </div>
+    <div class="doc-search-row" style="margin-top:32px;">
+      <div class="doc-search reveal">
+        <span class="doc-search-icon">🔍</span>
+        <input type="text" placeholder="Search documents, tariffs, guidelines…" id="docSearch" oninput="filterDocs(this.value)"/>
+      </div>
+      <div class="doc-filter-btns reveal reveal-delay-1">
+        <button class="doc-btn active" onclick="filterDocBtn(this,'all')">All</button>
+        <button class="doc-btn" onclick="filterDocBtn(this,'tariff')">Tariffs</button>
+        <button class="doc-btn" onclick="filterDocBtn(this,'regulation')">Regulations</button>
+        <button class="doc-btn" onclick="filterDocBtn(this,'form')">Forms</button>
+        <button class="doc-btn" onclick="filterDocBtn(this,'report')">Reports</button>
+      </div>
+    </div>
+    <div class="doc-grid" id="docGrid">
+      <div class="doc-card reveal reveal-delay-1" data-tag="tariff" onclick="downloadDoc('Port Tariff Schedule 2025','PDF · 2.4 MB · Updated Jan 2025')" style="cursor:pointer;">
+        <div class="doc-icon doc-pdf">📄</div>
+        <div class="doc-info">
+          <div class="doc-title">Port Tariff Schedule 2025</div>
+          <div class="doc-meta"><span>PDF</span><span class="doc-size">2.4 MB</span><span>Updated Jan 2025</span></div>
+        </div>
+        <div class="doc-dl" title="Download">↓</div>
+      </div>
+      <div class="doc-card reveal reveal-delay-2" data-tag="regulation" onclick="downloadDoc('NPA Ports & Harbours Act (Revised)','PDF · 5.1 MB · Updated 2024')" style="cursor:pointer;">
+        <div class="doc-icon doc-pdf">📋</div>
+        <div class="doc-info">
+          <div class="doc-title">NPA Ports & Harbours Act (Revised)</div>
+          <div class="doc-meta"><span>PDF</span><span class="doc-size">5.1 MB</span><span>Updated 2024</span></div>
+        </div>
+        <div class="doc-dl" title="Download">↓</div>
+      </div>
+      <div class="doc-card reveal reveal-delay-3" data-tag="form" onclick="downloadDoc('Vessel Pre-Arrival Declaration Form','DOCX · 380 KB · Updated Mar 2025')" style="cursor:pointer;">
+        <div class="doc-icon doc-word">📝</div>
+        <div class="doc-info">
+          <div class="doc-title">Vessel Pre-Arrival Declaration Form</div>
+          <div class="doc-meta"><span>DOCX</span><span class="doc-size">380 KB</span><span>Updated Mar 2025</span></div>
+        </div>
+        <div class="doc-dl" title="Download">↓</div>
+      </div>
+      <div class="doc-card reveal reveal-delay-1" data-tag="report" onclick="downloadDoc('Annual Performance Report 2024','PDF · 8.7 MB · Published Feb 2025')" style="cursor:pointer;">
+        <div class="doc-icon doc-excel">📊</div>
+        <div class="doc-info">
+          <div class="doc-title">Annual Performance Report 2024</div>
+          <div class="doc-meta"><span>PDF</span><span class="doc-size">8.7 MB</span><span>Published Feb 2025</span></div>
+        </div>
+        <div class="doc-dl" title="Download">↓</div>
+      </div>
+      <div class="doc-card reveal reveal-delay-2" data-tag="regulation" onclick="downloadDoc('ISPS Code Compliance Guidelines','PDF · 1.8 MB · Updated 2024')" style="cursor:pointer;">
+        <div class="doc-icon doc-pdf">🛡️</div>
+        <div class="doc-info">
+          <div class="doc-title">ISPS Code Compliance Guidelines</div>
+          <div class="doc-meta"><span>PDF</span><span class="doc-size">1.8 MB</span><span>Updated 2024</span></div>
+        </div>
+        <div class="doc-dl" title="Download">↓</div>
+      </div>
+      <div class="doc-card reveal reveal-delay-3" data-tag="tariff" onclick="downloadDoc('Pilotage & Towage Dues 2025','XLSX · 420 KB · Updated Jan 2025')" style="cursor:pointer;">
+        <div class="doc-icon doc-excel">💰</div>
+        <div class="doc-info">
+          <div class="doc-title">Pilotage & Towage Dues 2025</div>
+          <div class="doc-meta"><span>XLSX</span><span class="doc-size">420 KB</span><span>Updated Jan 2025</span></div>
+        </div>
+        <div class="doc-dl" title="Download">↓</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;" class="reveal">
+      <a href="https://nigerianports.gov.ng" target="_blank" rel="noopener" class="btn-outline" onclick="NPA.toast('Opening NPA document portal…','📂')">View All Documents →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ MEDIA -->
+<section id="media">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Media Centre</span>
+      <h2 class="section-title">See NPA in Action</h2>
+      <p class="section-sub">Watch port operations, official events, and documentary content from Nigeria's largest ports.</p>
+    </div>
+    <div class="media-tabs reveal" style="margin-top:32px;">
+      <button class="media-tab active" onclick="setMediaTab(this,'all')">All</button>
+      <button class="media-tab" onclick="setMediaTab(this,'operations')">Operations</button>
+      <button class="media-tab" onclick="setMediaTab(this,'events')">Events</button>
+      <button class="media-tab" onclick="setMediaTab(this,'documentary')">Documentaries</button>
+    </div>
+    <div class="media-grid">
+
+      <div class="media-card reveal reveal-delay-1" data-cat="operations"
+           onclick="openVideo('v1')" style="cursor:pointer;">
+        <div class="media-thumb" style="background:linear-gradient(135deg,#0B2545 0%,#1B3F6E 50%,#0369A1 100%);">
+          <div class="media-overlay"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+            <div style="font-size:52px;opacity:.3;">🚢</div>
+          </div>
+          <div class="media-play">▶</div>
+          <div class="media-duration">4:32</div>
+          <div style="position:absolute;bottom:40px;left:14px;right:14px;z-index:2;">
+            <div style="font-size:11px;color:rgba(255,255,255,.6);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">NPA Operations</div>
+            <div style="font-size:13px;color:#fff;font-weight:700;line-height:1.3;">Inside Lekki Deep Sea Port</div>
+          </div>
+        </div>
+        <div class="media-body">
+          <div class="media-title">Inside Lekki Deep Sea Port — Nigeria's Deepest Port</div>
+          <div class="media-meta">March 2025 &nbsp;·&nbsp; 4 min 32 sec &nbsp;·&nbsp; <span style="color:var(--ocean);">▶ Watch on YouTube</span></div>
+        </div>
+      </div>
+
+      <div class="media-card reveal reveal-delay-2" data-cat="events"
+           onclick="openVideo('v2')" style="cursor:pointer;">
+        <div class="media-thumb" style="background:linear-gradient(135deg,#064E3B 0%,#065F46 50%,#059669 100%);">
+          <div class="media-overlay"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <div style="font-size:52px;opacity:.3;">⚓</div>
+          </div>
+          <div class="media-play">▶</div>
+          <div class="media-duration">7:15</div>
+          <div style="position:absolute;bottom:40px;left:14px;right:14px;z-index:2;">
+            <div style="font-size:11px;color:rgba(255,255,255,.6);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Digital Transformation</div>
+            <div style="font-size:13px;color:#fff;font-weight:700;line-height:1.3;">Port Modernisation Initiative</div>
+          </div>
+        </div>
+        <div class="media-body">
+          <div class="media-title">Port Modernisation — NPA's Digital Transformation Journey</div>
+          <div class="media-meta">February 2025 &nbsp;·&nbsp; 7 min 15 sec &nbsp;·&nbsp; <span style="color:var(--ocean);">▶ Watch on YouTube</span></div>
+        </div>
+      </div>
+
+      <div class="media-card reveal reveal-delay-3" data-cat="documentary"
+           onclick="openVideo('v3')" style="cursor:pointer;">
+        <div class="media-thumb" style="background:linear-gradient(135deg,#78350F 0%,#92400E 50%,#D97706 100%);">
+          <div class="media-overlay"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <div style="font-size:52px;opacity:.3;">🌍</div>
+          </div>
+          <div class="media-play">▶</div>
+          <div class="media-duration">2:58</div>
+          <div style="position:absolute;bottom:40px;left:14px;right:14px;z-index:2;">
+            <div style="font-size:11px;color:rgba(255,255,255,.6);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Documentary</div>
+            <div style="font-size:13px;color:#fff;font-weight:700;line-height:1.3;">Africa's Maritime Gateway</div>
+          </div>
+        </div>
+        <div class="media-body">
+          <div class="media-title">Nigeria's Ports — Gateway to Africa's Trade Corridors</div>
+          <div class="media-meta">January 2025 &nbsp;·&nbsp; 2 min 58 sec &nbsp;·&nbsp; <span style="color:var(--ocean);">▶ Watch on YouTube</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:36px;" class="reveal">
+      <a href="https://www.youtube.com/@NigerianPortsAuthority" target="_blank" rel="noopener" class="btn-outline">View All Videos on YouTube →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ SOCIAL -->
+<section id="social">
+  <div class="container">
+    <div class="social-grid">
+      <div class="reveal">
+        <span class="section-label">Social Media</span>
+        <h2 class="section-title">Follow NPA's Story</h2>
+        <p class="section-sub">Behind-the-scenes port operations, industry updates, and maritime news across our social channels.</p>
+        <div class="social-feeds" style="margin-top:32px;">
+          <div class="social-post">
+            <div class="social-post-header">
+              <div class="social-avatar">🐦</div>
+              <div>
+                <div class="social-handle">@nigerianportsa</div>
+                <div class="social-platform">Twitter / X</div>
+              </div>
+            </div>
+            <div class="social-post-text">🚢 Vessel traffic at Lagos Port up 8.3% this month! Nigeria's ports are moving. #MaritimeNigeria #Trade</div>
+            <div class="social-post-actions">
+              <span>❤️ 284</span>
+              <span>🔁 97</span>
+              <span>💬 31</span>
+            </div>
+          </div>
+          <div class="social-post">
+            <div class="social-post-header">
+              <div class="social-avatar" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">📸</div>
+              <div>
+                <div class="social-handle">@nigerianportsa</div>
+                <div class="social-platform">Instagram</div>
+              </div>
+            </div>
+            <div class="social-post-img">🏗️</div>
+            <div class="social-post-actions">
+              <span>❤️ 1.2K</span>
+              <span>💬 84</span>
+            </div>
+          </div>
+          <div class="social-post">
+            <div class="social-post-header">
+              <div class="social-avatar" style="background:#1877F2;">📘</div>
+              <div>
+                <div class="social-handle">Nigerian Ports Authority</div>
+                <div class="social-platform">Facebook</div>
+              </div>
+            </div>
+            <div class="social-post-text">Lekki Deep Sea Port now fully operational! Nigeria's deepest port is redefining maritime trade in West Africa 🌍</div>
+            <div class="social-post-actions">
+              <span>👍 3.4K</span>
+              <span>💬 212</span>
+              <span>↗️ Share</span>
+            </div>
+          </div>
+          <div class="social-post">
+            <div class="social-post-header">
+              <div class="social-avatar" style="background:#0A66C2;">💼</div>
+              <div>
+                <div class="social-handle">Nigerian Ports Authority</div>
+                <div class="social-platform">LinkedIn</div>
+              </div>
+            </div>
+            <div class="social-post-text">NPA's digital transformation: 40% reduction in cargo dwell time. A new chapter in Nigerian maritime history.</div>
+            <div class="social-post-actions">
+              <span>👍 892</span>
+              <span>💬 67</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social-follow-card reveal reveal-delay-2">
+        <div class="social-follow-title">Follow Our Journey Across All Platforms</div>
+        <div class="social-follow-sub">Stay updated with live port activity, news, and operational updates across NPA's official social channels.</div>
+        <div class="social-platforms">
+          <a href="https://twitter.com/nigerianportsa" target="_blank" rel="noopener" class="social-platform-row" style="text-decoration:none;">
+            <div class="social-platform-left">
+              <span>🐦</span>
+              <span style="color:#fff;">Twitter / X</span>
+            </div>
+            <div class="social-platform-count">@nigerianportsa</div>
+          </a>
+          <a href="https://www.instagram.com/nigerianportsa" target="_blank" rel="noopener" class="social-platform-row" style="text-decoration:none;">
+            <div class="social-platform-left">
+              <span>📸</span>
+              <span style="color:#fff;">Instagram</span>
+            </div>
+            <div class="social-platform-count">@nigerianportsa</div>
+          </a>
+          <a href="https://www.facebook.com/nigerianportsa" target="_blank" rel="noopener" class="social-platform-row" style="text-decoration:none;">
+            <div class="social-platform-left">
+              <span>📘</span>
+              <span style="color:#fff;">Facebook</span>
+            </div>
+            <div class="social-platform-count">57.6K followers</div>
+          </a>
+          <a href="https://www.linkedin.com/company/nigerian-ports-authority" target="_blank" rel="noopener" class="social-platform-row" style="text-decoration:none;">
+            <div class="social-platform-left">
+              <span>💼</span>
+              <span style="color:#fff;">LinkedIn</span>
+            </div>
+            <div class="social-platform-count">Official Page</div>
+          </a>
+          <a href="https://www.youtube.com/@NigerianPortsAuthority" target="_blank" rel="noopener" class="social-platform-row" style="text-decoration:none;">
+            <div class="social-platform-left">
+              <span>▶️</span>
+              <span style="color:#fff;">YouTube</span>
+            </div>
+            <div class="social-platform-count">NPA Nigeria</div>
+          </a>
+        </div>
+        <a href="https://www.facebook.com/nigerianportsa" target="_blank" rel="noopener" class="btn-follow-all" onclick="NPA.toast('Opening NPA social channels…','📱')">Follow All Channels →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Contact Us</span>
+      <h2 class="section-title">Get in Touch with NPA</h2>
+      <p class="section-sub">Our team is available to assist with services, inquiries, and port-related matters.</p>
+    </div>
+    <div class="contact-grid" style="margin-top:48px;">
+      <div class="contact-cards">
+        <div class="contact-card reveal reveal-delay-1">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-info-label">Head Office</div>
+            <div class="contact-info-val">26/28 Marina, Lagos</div>
+            <div class="contact-info-sub">P.M.B 12588 Lagos, Nigeria</div>
+            <a href="https://maps.google.com" target="_blank" class="contact-action">Get Directions →</a>
+          </div>
+        </div>
+        <div class="contact-card reveal reveal-delay-2">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-info-label">Phone</div>
+            <div class="contact-info-val">+234 (0)201 463 7496</div>
+            <div class="contact-info-sub">+234 (0)201 463 7497 · 7498</div>
+            <a href="tel:+2342014637496" class="contact-action">Call Now →</a>
+          </div>
+        </div>
+        <div class="contact-card reveal reveal-delay-3">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-info-label">Email</div>
+            <div class="contact-info-val">info@nigerianports.gov.ng</div>
+            <div class="contact-info-sub">helpdesk@nigerianports.gov.ng</div>
+            <a href="mailto:info@nigerianports.gov.ng" class="contact-action">Send Email →</a>
+          </div>
+        </div>
+        <div class="contact-card reveal reveal-delay-4">
+          <div class="contact-icon">🏛️</div>
+          <div>
+            <div class="contact-info-label">Abuja Liaison Office</div>
+            <div class="contact-info-val">Plot 75 Ralph Shodeinde St.</div>
+            <div class="contact-info-sub">Central Business District, Abuja &nbsp;·&nbsp; +234 (0)815 879 4400</div>
+            <a href="mailto:abujainfo@nigerianports.gov.ng" class="contact-action">Abuja Office →</a>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="contact-map">
+          <div class="map-placeholder">
+            <div class="map-pin">📍</div>
+            <div class="map-title">NPA Head Office — Marina, Lagos</div>
+            <div class="map-address">26/28 Marina, Lagos Island<br/>Lagos, Nigeria</div>
+            <a href="https://www.google.com/maps/search/Nigerian+Ports+Authority+Marina+Lagos" target="_blank" class="map-directions">🗺 Open in Google Maps</a>
+          </div>
+          <div class="offices-list">
+            <div class="offices-title">Find Nearest Port Office</div>
+            <div class="offices-grid">
+              <div class="office-item"><strong>Lagos</strong><span>Apapa / Marina</span></div>
+              <div class="office-item"><strong>Lekki</strong><span>Deep Sea Port</span></div>
+              <div class="office-item"><strong>Port Harcourt</strong><span>Onne Complex</span></div>
+              <div class="office-item"><strong>Calabar</strong><span>Cross River State</span></div>
+              <div class="office-item"><strong>Warri</strong><span>Delta Ports</span></div>
+              <div class="office-item"><strong>Abuja</strong><span>Liaison Office</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CTA -->
+<section id="cta">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="container cta-inner">
+    <div class="hero-badge reveal" style="margin:0 auto 24px;justify-content:center;">
+      <span class="hero-badge-dot"></span>
+      Ready to Get Started?
+    </div>
+    <h2 class="reveal reveal-delay-1">Access Port Services <em>Easily</em></h2>
+    <p class="reveal reveal-delay-2">Whether you're a shipper, vessel operator, or business — NPA's digital platform puts every port service at your fingertips.</p>
+    <div class="cta-buttons reveal reveal-delay-3">
+      <button onclick="openTrackModal()" class="btn-cta-primary" style="font-family:'Plus Jakarta Sans',sans-serif;border:none;">
+        🚢 Track Your Shipment
+      </button>
+      <a href="#quick-access" class="btn-cta-ghost">
+        Browse All Services →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:0;">
+          <div class="logo-shield">
+            <svg viewBox="0 0 32 32" width="26" height="26">
+              <path fill="white" d="M16 2L4 8v8c0 8 5.5 14 12 16 6.5-2 12-8 12-16V8L16 2z"/>
+              <path fill="#D97706" d="M12 14l3 3 6-6-1.5-1.5-4.5 4.5-1.5-1.5z"/>
+            </svg>
+          </div>
+          <div class="logo-text footer-brand">
+            <strong>Nigerian Ports Authority</strong>
+            <span>Est. 1954 · Federal Agency</span>
+          </div>
+        </div>
+        <p class="footer-brand-desc">NPA is a Federal Government Agency that governs and operates the ports of Nigeria. Under the supervision of the Federal Ministry of Marine & Blue Economy.</p>
+        <div class="footer-socials">
+          <a href="https://twitter.com/nigerianportsa" target="_blank" rel="noopener" class="footer-social" title="Twitter / X">🐦</a>
+          <a href="https://www.facebook.com/nigerianportsa" target="_blank" rel="noopener" class="footer-social" title="Facebook">📘</a>
+          <a href="https://www.instagram.com/nigerianportsa" target="_blank" rel="noopener" class="footer-social" title="Instagram">📸</a>
+          <a href="https://www.linkedin.com/company/nigerian-ports-authority" target="_blank" rel="noopener" class="footer-social" title="LinkedIn">💼</a>
+          <a href="https://www.youtube.com/@NigerianPortsAuthority" target="_blank" rel="noopener" class="footer-social" title="YouTube">▶️</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="javascript:void(0)" onclick="openTrackModal()">Track Cargo</a></li>
+          <li><a href="#services">Port Services</a></li>
+          <li><a href="#documents" onclick="setTimeout(()=>{const b=document.querySelector('[onclick*=tariff]');if(b)filterDocBtn(b,'tariff')},400)">Tariffs & Fees</a></li>
+          <li><a href="https://www.nigerianports.gov.ng" target="_blank" rel="noopener">Vessel Licensing</a></li>
+          <li><a href="#services">Marine Services</a></li>
+          <li><a href="https://www.nigerianports.gov.ng" target="_blank" rel="noopener">Barge Operations</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Information</div>
+        <ul class="footer-links">
+          <li><a href="https://www.nigerianports.gov.ng/about" target="_blank" rel="noopener">About NPA</a></li>
+          <li><a href="https://www.nigerianports.gov.ng/leadership" target="_blank" rel="noopener">Leadership</a></li>
+          <li><a href="#trust">Regulations</a></li>
+          <li><a href="#documents" onclick="setTimeout(()=>{const b=document.querySelector('[onclick*=report]');if(b)filterDocBtn(b,'report')},400)">Annual Reports</a></li>
+          <li><a href="https://www.nigerianports.gov.ng/tenders" target="_blank" rel="noopener">Tenders</a></li>
+          <li><a href="https://www.nigerianports.gov.ng/careers" target="_blank" rel="noopener">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+2342014637496">+234 201 463 7496</a></li>
+          <li><a href="mailto:info@nigerianports.gov.ng">info@nigerianports.gov.ng</a></li>
+          <li><a href="https://www.google.com/maps/search/Nigerian+Ports+Authority+Marina+Lagos" target="_blank" rel="noopener">26/28 Marina, Lagos</a></li>
+          <li><a href="mailto:abujainfo@nigerianports.gov.ng">Abuja Liaison Office</a></li>
+          <li><a href="tel:+2348158794400">Emergency Line</a></li>
+          <li><a href="mailto:helpdesk@nigerianports.gov.ng">Helpdesk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Nigerian Ports Authority. Federal Republic of Nigeria.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">FOIA</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════ VIDEO MODAL ═══════════════ -->
+<div class="modal-overlay" id="videoModal">
+  <div class="video-modal-box" onclick="event.stopPropagation()">
+    <div class="video-modal-header">
+      <div class="video-modal-title" id="videoModalTitle">NPA Media</div>
+      <button class="modal-close-btn" onclick="NPA.closeModal('videoModal')">✕</button>
+    </div>
+    <div id="videoInner">
+      <!-- Content injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TRACKING MODAL ═══════════════ -->
+<div class="modal-overlay" id="trackModal">
+  <div class="track-modal-box" onclick="event.stopPropagation()">
+    <div class="track-modal-head">
+      <div>
+        <h3>🔍 Track Your Shipment</h3>
+        <p>Enter your Bill of Lading, Container ID, or Vessel Name</p>
+      </div>
+      <button class="modal-close-btn" onclick="NPA.closeModal('trackModal')">✕</button>
+    </div>
+    <div class="track-modal-body">
+      <div class="track-input-group">
+        <label>Tracking Type</label>
+        <select id="trackType">
+          <option value="bol">Bill of Lading (B/L)</option>
+          <option value="container">Container Number</option>
+          <option value="vessel">Vessel Name</option>
+          <option value="booking">Booking Reference</option>
+        </select>
+      </div>
+      <div class="track-input-group">
+        <label>Reference Number / Name</label>
+        <input type="text" id="trackInput" placeholder="e.g. NPAB2025001234, TCKU3853210…"
+               onkeydown="if(event.key==='Enter') NPA.doTrack()"/>
+      </div>
+      <button class="btn-track-submit" id="trackBtn" onclick="NPA.doTrack()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        Track Shipment
+      </button>
+      <div class="track-result" id="trackResult">
+        <div class="track-result-label">✅ Shipment Located</div>
+        <div class="track-result-rows" id="trackResultRows"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ DOWNLOAD MODAL ═══════════════ -->
+<div class="modal-overlay" id="downloadModal">
+  <div class="track-modal-box" onclick="event.stopPropagation()" style="max-width:460px;">
+    <div class="track-modal-head" style="background:linear-gradient(135deg,#064E3B,#059669);">
+      <div>
+        <h3 id="dlModalTitle">📄 Document Download</h3>
+        <p id="dlModalMeta">PDF · Updating Jan 2025</p>
+      </div>
+      <button class="modal-close-btn" onclick="NPA.closeModal('downloadModal')">✕</button>
+    </div>
+    <div class="track-modal-body">
+      <div id="dlProgress" style="display:none;margin-bottom:16px;">
+        <div style="font-size:13px;color:var(--text-3);margin-bottom:8px;">Preparing download…</div>
+        <div style="height:6px;border-radius:3px;background:var(--border);overflow:hidden;">
+          <div id="dlBar" style="height:100%;background:linear-gradient(90deg,var(--ocean-light),var(--ocean));width:0%;transition:width .4s ease;border-radius:3px;"></div>
+        </div>
+      </div>
+      <div id="dlReady" style="display:none;margin-bottom:16px;padding:14px;background:rgba(5,150,105,.07);border:1.5px solid rgba(5,150,105,.2);border-radius:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--success);margin-bottom:4px;">✅ Ready to Download</div>
+        <div style="font-size:12px;color:var(--text-3);">File prepared — click below to save</div>
+      </div>
+      <a id="dlLink" href="#" download style="display:none;" target="_blank"></a>
+      <button id="dlBtn" class="btn-track-submit" onclick="NPA.startDownload()">
+        ⬇ Download Document
+      </button>
+      <div style="margin-top:14px;font-size:12px;color:var(--text-4);text-align:center;">
+        All documents are official NPA publications
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TOAST CONTAINER ═══════════════ -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/2348158794400" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+  <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
+  <svg viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<style>
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes toastIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+@keyframes toastOut{from{opacity:1;}to{opacity:0;transform:translateY(-8px);}}
+</style>
+
+<!-- ═══════════════════════════════════════ JS -->
+<script>
+/* ─────────────────────────────────────────────────
+   NPA NAMESPACE — all functions in window.NPA
+   so they're always accessible from inline onclick
+───────────────────────────────────────────────── */
+window.NPA = (function() {
+
+  /* ── TOAST ── */
+  function toast(msg, icon, duration) {
+    icon = icon || '✅';
+    duration = duration || 3200;
+    var c = document.getElementById('toastContainer');
+    var t = document.createElement('div');
+    t.className = 'toast';
+    t.innerHTML = '<span>' + icon + '</span><span>' + msg + '</span>';
+    c.appendChild(t);
+    setTimeout(function() {
+      t.style.animation = 'toastOut .35s ease forwards';
+      setTimeout(function() { if (t.parentNode) t.parentNode.removeChild(t); }, 350);
+    }, duration);
+  }
+
+  /* ── MODAL OPEN / CLOSE ── */
+  function openModal(id) {
+    var m = document.getElementById(id);
+    if (!m) return;
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    var m = document.getElementById(id);
+    if (!m) return;
+    m.classList.remove('open');
+    document.body.style.overflow = '';
+    if (id === 'videoModal') {
+      var inner = document.getElementById('videoInner');
+      if (inner) inner.innerHTML = '';
+    }
+  }
+
+  // Close modals on overlay click
+  ['videoModal','trackModal','downloadModal'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('click', function(e) {
+      if (e.target === el) closeModal(id);
+    });
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal('videoModal');
+      closeModal('trackModal');
+      closeModal('downloadModal');
+    }
+  });
+
+  /* ────────────────────────────────────────────
+     VIDEO PLAYER
+     Opens an in-page player panel (no iframe —
+     iframes are blocked in sandboxed previews).
+     Shows thumbnail + meta + Watch on YouTube CTA.
+  ──────────────────────────────────────────── */
+  var videos = [
+    {
+      id: 'v1',
+      title: "Inside Lekki Deep Sea Port — Nigeria's Deepest Port",
+      duration: '4:32',
+      category: 'operations',
+      description: "A full walkthrough of the Lekki Deep Sea Port — Nigeria's most modern deepwater terminal. Capable of handling vessels up to 16.5m draft, this port is West Africa's new trade hub.",
+      thumb: 'linear-gradient(135deg,#0B2545 0%,#1B3F6E 50%,#0369A1 100%)',
+      emoji: '🚢',
+      ytQuery: 'Lekki Deep Sea Port Nigeria operations NPA',
+      date: 'March 2025',
+      views: '48.2K views'
+    },
+    {
+      id: 'v2',
+      title: "Port Modernisation — NPA's Digital Transformation Journey",
+      duration: '7:15',
+      category: 'events',
+      description: "The Nigerian Ports Authority's drive to modernise Nigeria's port ecosystem — from digital berth allocation to the National Single Window (NSW) system cutting dwell time by 40%.",
+      thumb: 'linear-gradient(135deg,#064E3B 0%,#065F46 50%,#059669 100%)',
+      emoji: '⚓',
+      ytQuery: 'Nigerian Ports Authority NPA modernisation digital transformation 2024',
+      date: 'February 2025',
+      views: '32.7K views'
+    },
+    {
+      id: 'v3',
+      title: "Nigeria's Ports — Gateway to Africa's Trade Corridors",
+      duration: '2:58',
+      category: 'documentary',
+      description: "A documentary look at how Nigeria's six major ports connect Africa's largest economy to global trade. From Apapa to Onne, these ports handle over 4.2 million metric tonnes monthly.",
+      thumb: 'linear-gradient(135deg,#78350F 0%,#92400E 50%,#D97706 100%)',
+      emoji: '🌍',
+      ytQuery: 'Nigeria ports maritime gateway Africa trade documentary',
+      date: 'January 2025',
+      views: '21.4K views'
+    }
+  ];
+
+  function openVideo(videoId) {
+    var v = videos.find(function(x) { return x.id === videoId; });
+    if (!v) return;
+    document.getElementById('videoModalTitle').textContent = v.title;
+    var ytUrl = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(v.ytQuery);
+    document.getElementById('videoInner').innerHTML =
+      '<div style="background:' + v.thumb + ';height:260px;position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">' +
+        '<div style="font-size:72px;opacity:.25;position:absolute;">' + v.emoji + '</div>' +
+        '<div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:14px;">' +
+          '<div style="width:72px;height:72px;background:rgba(255,255,255,.95);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;padding-left:4px;box-shadow:0 12px 40px rgba(0,0,0,.4);cursor:pointer;" onclick="window.open(\'' + ytUrl + '\',\'_blank\')" title="Watch on YouTube">▶</div>' +
+          '<div style="font-size:12px;color:rgba(255,255,255,.7);font-weight:600;letter-spacing:1px;">CLICK TO WATCH ON YOUTUBE</div>' +
+        '</div>' +
+        '<div style="position:absolute;bottom:12px;right:14px;background:rgba(0,0,0,.65);color:#fff;font-size:12px;padding:3px 10px;border-radius:4px;font-family:monospace;">' + v.duration + '</div>' +
+      '</div>' +
+      '<div style="padding:24px;">' +
+        '<div style="display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;">' +
+          '<span style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ocean);background:rgba(3,105,161,.08);padding:4px 12px;border-radius:100px;">' + v.category.toUpperCase() + '</span>' +
+          '<span style="font-size:12px;color:var(--text-4);">' + v.date + '&nbsp;·&nbsp;' + v.views + '</span>' +
+        '</div>' +
+        '<div style="font-family:\'Syne\',sans-serif;font-size:17px;font-weight:700;color:var(--text-1);margin-bottom:10px;line-height:1.3;">' + v.title + '</div>' +
+        '<div style="font-size:14px;color:var(--text-3);line-height:1.65;margin-bottom:20px;">' + v.description + '</div>' +
+        '<a href="' + ytUrl + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border-radius:10px;background:#FF0000;color:#fff;font-size:14px;font-weight:700;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity=\'.85\'" onmouseout="this.style.opacity=\'1\'">' +
+          '<svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.81 3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>' +
+          'Watch on YouTube' +
+        '</a>' +
+      '</div>';
+    openModal('videoModal');
+  }
+
+  /* ────────────────────────────────────────────
+     DOCUMENT DOWNLOAD
+     Generates a real text/CSV file in-browser
+     using Blob + object URL — no popup needed.
+  ──────────────────────────────────────────── */
+  var docs = {
+    'Port Tariff Schedule 2025': {
+      meta: 'PDF · 2.4 MB · Updated Jan 2025',
+      content: 'NIGERIAN PORTS AUTHORITY\nPort Tariff Schedule 2025\n\nBerth Hire (per hour):\n- General Cargo Vessel: NGN 45,000\n- Container Vessel: NGN 65,000\n- Tanker: NGN 55,000\n\nCargo Dues (per tonne):\n- Imports: NGN 1,850\n- Exports: NGN 1,200\n\nPilotage Dues:\n- Vessels up to 100 GRT: NGN 120,000\n- 100-5000 GRT: NGN 280,000\n- Over 5000 GRT: NGN 450,000\n\nPort Security Surcharge: 5% of dues\n\nContact: tariffs@nigerianports.gov.ng\nTel: +234 201 463 7496\nwww.nigerianports.gov.ng',
+      filename: 'NPA-Port-Tariff-Schedule-2025.txt'
+    },
+    'NPA Ports & Harbours Act (Revised)': {
+      meta: 'PDF · 5.1 MB · Updated 2024',
+      content: 'NIGERIAN PORTS AUTHORITY ACT (REVISED 2024)\nCap N126, Laws of the Federation of Nigeria\n\nPART I — ESTABLISHMENT OF AUTHORITY\n1. There is hereby established a body to be known as the Nigerian Ports Authority.\n2. The Authority shall be a body corporate with perpetual succession.\n\nPART II — FUNCTIONS\n3. The Authority shall manage, maintain and operate ports in Nigeria.\n4. Ensure availability of safe navigable waterways.\n5. Administer port infrastructure and facilities.\n\nPART III — PORT OPERATIONS\n6. All vessels entering Nigerian waters must comply with NPA regulations.\n7. Pilotage is compulsory for all vessels above 100 GRT.\n\nFor full text: info@nigerianports.gov.ng\nwww.nigerianports.gov.ng/regulations',
+      filename: 'NPA-Ports-Harbours-Act-2024.txt'
+    },
+    'Vessel Pre-Arrival Declaration Form': {
+      meta: 'DOCX · 380 KB · Updated Mar 2025',
+      content: 'NIGERIAN PORTS AUTHORITY\nVESSEL PRE-ARRIVAL DECLARATION FORM\nForm NPA-PAD/001/2025\n\nVESSEL PARTICULARS\nVessel Name: ______________________________\nIMO Number: ______________________________\nFlag State: ______________________________\nGross Tonnage: ___________________________\nLength Overall: __________________________\nBeam: ___________________________________\n\nVOYAGE DETAILS\nPort of Origin: _________________________\nLast Port: ______________________________\nNext Port: ______________________________\nETA Nigeria: _____________________________\nCargo Type: _____________________________\nTotal Cargo (MT): ________________________\n\nAGENT DETAILS\nAgent Name: _____________________________\nAgent Address: __________________________\nContact Phone: __________________________\nEmail: __________________________________\n\nDeclaration: I hereby declare that all information provided is true and correct.\n\nSubmit to: prenotice@nigerianports.gov.ng\nwww.nigerianports.gov.ng/forms',
+      filename: 'NPA-Vessel-Pre-Arrival-Declaration.txt'
+    },
+    'Annual Performance Report 2024': {
+      meta: 'PDF · 8.7 MB · Published Feb 2025',
+      content: 'NIGERIAN PORTS AUTHORITY\nANNUAL PERFORMANCE REPORT 2024\n\nEXECUTIVE SUMMARY\nThe Nigerian Ports Authority recorded significant improvements across all key performance indicators in 2024.\n\nKEY HIGHLIGHTS\n- Total vessel calls: 14,964 (up 8.3% YoY)\n- Total cargo throughput: 49.6M metric tonnes\n- Average dwell time: 48 hours (reduced from 58hrs in 2023)\n- Revenue generated: NGN 285.4 billion\n- New terminals commissioned: 2 (Lekki expansion, Onne T2)\n\nPORT PERFORMANCE\nLagos Port Complex: 3,744 vessel calls\nLekki Deep Sea Port: 2,232 vessel calls\nTin Can Island: 2,928 vessel calls\nOnne Port: 2,520 vessel calls\nCalabars Port: 1,944 vessel calls\nDelta Ports: 1,596 vessel calls\n\nOUTLOOK 2025\nNPA targets 15% reduction in dwell time and 12% increase in cargo throughput.\n\nFor full report: info@nigerianports.gov.ng\nwww.nigerianports.gov.ng/reports',
+      filename: 'NPA-Annual-Performance-Report-2024.txt'
+    },
+    'ISPS Code Compliance Guidelines': {
+      meta: 'PDF · 1.8 MB · Updated 2024',
+      content: 'NIGERIAN PORTS AUTHORITY\nISPS CODE COMPLIANCE GUIDELINES 2024\n\nINTERNATIONAL SHIP AND PORT FACILITY SECURITY CODE\n\n1. PURPOSE\nThese guidelines establish security procedures for all Nigerian port facilities in compliance with SOLAS Chapter XI-2 and the ISPS Code.\n\n2. PORT SECURITY LEVELS\nLevel 1: Normal — Standard security measures\nLevel 2: Heightened — Enhanced security measures\nLevel 3: Exceptional — Maximum security measures\n\n3. ACCESS CONTROL\n- All personnel must carry valid NPA-issued ID passes\n- Vehicle access restricted to designated areas\n- CCTV surveillance mandatory at all entry points\n\n4. VESSEL SECURITY\n- Ship Security Plan (SSP) required for all vessels\n- Declaration of Security (DoS) mandatory\n- Security sweeps before departure\n\n5. REPORTING\nSecurity incidents: security@nigerianports.gov.ng\nEmergency: +234 815 879 4400\n\nwww.nigerianports.gov.ng/security',
+      filename: 'NPA-ISPS-Code-Compliance-2024.txt'
+    },
+    'Pilotage & Towage Dues 2025': {
+      meta: 'XLSX · 420 KB · Updated Jan 2025',
+      content: 'NIGERIAN PORTS AUTHORITY\nPILOTAGE & TOWAGE DUES SCHEDULE 2025\n\nPILOTAGE DUES (Inward/Outward per transit)\nVessel GRT,Pilotage Fee (NGN)\nUp to 100 GRT,120000\n101-500 GRT,195000\n501-1000 GRT,260000\n1001-3000 GRT,380000\n3001-5000 GRT,450000\n5001-10000 GRT,580000\n10001-20000 GRT,750000\n20001-40000 GRT,980000\nAbove 40000 GRT,1250000\n\nTOWAGE DUES (per tug per hour)\nTug Type,Hourly Rate (NGN)\nSmall Tug (up to 1500 BHP),85000\nMedium Tug (1501-3000 BHP),145000\nLarge Tug (above 3000 BHP),220000\n\nNOTE: 5% surcharge applies on public holidays\nPayment: accounts@nigerianports.gov.ng\nwww.nigerianports.gov.ng/tariffs',
+      filename: 'NPA-Pilotage-Towage-Dues-2025.txt'
+    }
+  };
+
+  var currentDoc = null;
+
+  function downloadDoc(name, meta) {
+    currentDoc = docs[name];
+    if (!currentDoc) { toast('Document not found', '⚠️'); return; }
+    document.getElementById('dlModalTitle').textContent = '📄 ' + name;
+    document.getElementById('dlModalMeta').textContent = meta || currentDoc.meta;
+    document.getElementById('dlProgress').style.display = 'none';
+    document.getElementById('dlReady').style.display = 'none';
+    document.getElementById('dlBar').style.width = '0%';
+    var btn = document.getElementById('dlBtn');
+    btn.disabled = false;
+    btn.innerHTML = '⬇ Download Document';
+    openModal('downloadModal');
+  }
+
+  function startDownload() {
+    if (!currentDoc) return;
+    var btn = document.getElementById('dlBtn');
+    var bar = document.getElementById('dlBar');
+    var prog = document.getElementById('dlProgress');
+    var ready = document.getElementById('dlReady');
+    btn.disabled = true;
+    btn.innerHTML = 'Preparing…';
+    prog.style.display = 'block';
+    ready.style.display = 'none';
+    // Animate progress bar
+    var pct = 0;
+    var interval = setInterval(function() {
+      pct = Math.min(pct + Math.random() * 18 + 8, 100);
+      bar.style.width = pct + '%';
+      if (pct >= 100) {
+        clearInterval(interval);
+        bar.style.width = '100%';
+        setTimeout(function() {
+          prog.style.display = 'none';
+          ready.style.display = 'block';
+          // Create real downloadable Blob
+          var blob = new Blob([currentDoc.content], { type: 'text/plain;charset=utf-8' });
+          var url = URL.createObjectURL(blob);
+          var a = document.getElementById('dlLink');
+          a.href = url;
+          a.download = currentDoc.filename;
+          a.click();
+          setTimeout(function() { URL.revokeObjectURL(url); }, 3000);
+          btn.disabled = false;
+          btn.innerHTML = '✅ Downloaded — Click Again to Re-download';
+          toast(currentDoc.filename + ' downloaded!', '📄');
+        }, 300);
+      }
+    }, 120);
+  }
+
+  /* ────────────────────────────────────────────
+     CARGO TRACKER
+  ──────────────────────────────────────────── */
+  var mockData = {
+    bol: [
+      ['Reference','NPAB-2025-001234'],
+      ['Vessel','MV Atlantic Pioneer'],
+      ['Origin Port','Rotterdam, Netherlands'],
+      ['Destination','Lagos Port Complex, Nigeria'],
+      ['ETA','April 12, 2025 — 08:00 WAT'],
+      ['Status','🟡 In Transit — 340 NM from Lagos'],
+      ['Last Update','April 5, 2025 at 09:42 WAT']
+    ],
+    container: [
+      ['Container No.','TCKU-3853210-4'],
+      ['Type','40ft High Cube (HC)'],
+      ['Contents','General Merchandise'],
+      ['Current Port','Tin Can Island Terminal 2'],
+      ['Berth','Berth 09 — Gate Out Pending'],
+      ['Status','🟢 At Port — Awaiting Pickup'],
+      ['Last Update','April 5, 2025 at 11:15 WAT']
+    ],
+    vessel: [
+      ['Vessel Name','MSC Apapa Star'],
+      ['Flag','Panama'],
+      ['IMO Number','IMO 9745312'],
+      ['Current Port','Lekki Deep Sea Port'],
+      ['Berth','Berth 3 — Discharging'],
+      ['ETA (Next Port)','Abidjan — April 18, 2025'],
+      ['Status','🟢 Berthed — Operations Active']
+    ],
+    booking: [
+      ['Booking Ref','NPA-BK-2025-7742'],
+      ['Shipper','Dangote Industries Ltd.'],
+      ['Consignee','Lagos Port Logistics Hub'],
+      ['Vessel','MV Delta Trader'],
+      ['Loading Date','April 10, 2025'],
+      ['Port of Load','Apapa, Lagos'],
+      ['Status','🔵 Booking Confirmed']
+    ]
+  };
+
+  function openTrackModal() {
+    var resultBox = document.getElementById('trackResult');
+    var input = document.getElementById('trackInput');
+    if (resultBox) resultBox.classList.remove('show');
+    if (input) input.value = '';
+    openModal('trackModal');
+    setTimeout(function() { if (input) input.focus(); }, 350);
+  }
+
+  function doTrack() {
+    var input = document.getElementById('trackInput');
+    var type = document.getElementById('trackType');
+    var resultBox = document.getElementById('trackResult');
+    var resultRows = document.getElementById('trackResultRows');
+    var btn = document.getElementById('trackBtn');
+    if (!input || !input.value.trim()) {
+      toast('Please enter a tracking reference', '⚠️');
+      if (input) input.focus();
+      return;
+    }
+    btn.disabled = true;
+    btn.innerHTML = '<span style="display:inline-block;animation:spin 1s linear infinite;font-size:18px;">⟳</span>&nbsp; Searching…';
+    if (resultBox) resultBox.classList.remove('show');
+    setTimeout(function() {
+      var rows = mockData[type.value] || mockData.bol;
+      resultRows.innerHTML = rows.map(function(r) {
+        return '<div class="track-result-row"><span>' + r[0] + '</span><span>' + r[1] + '</span></div>';
+      }).join('');
+      resultBox.classList.add('show');
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Track Shipment';
+      toast('Shipment found — 7 records returned', '📦');
+    }, 1500);
+  }
+
+  /* ────────────────────────────────────────────
+     MEDIA TAB FILTER
+  ──────────────────────────────────────────── */
+  function setMediaTab(btn, cat) {
+    document.querySelectorAll('.media-tab').forEach(function(t) { t.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.media-card').forEach(function(card) {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+    });
+  }
+
+  /* ────────────────────────────────────────────
+     DOC FILTER
+  ──────────────────────────────────────────── */
+  function filterDocBtn(btn, tag) {
+    document.querySelectorAll('.doc-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.doc-card').forEach(function(card) {
+      card.style.display = (tag === 'all' || card.dataset.tag === tag) ? '' : 'none';
+    });
+  }
+  function filterDocs(val) {
+    var q = val.toLowerCase();
+    document.querySelectorAll('.doc-card').forEach(function(card) {
+      var title = card.querySelector('.doc-title');
+      if (title) card.style.display = title.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  }
+
+  /* ─── NAV SCROLL ─── */
+  var navEl = document.getElementById('mainNav');
+  window.addEventListener('scroll', function() {
+    if (navEl) navEl.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  /* ─── MOBILE MENU ─── */
+  var hamBtn = document.getElementById('hamburger');
+  var mobMenu = document.getElementById('mobileMenu');
+  if (hamBtn && mobMenu) {
+    hamBtn.addEventListener('click', function() {
+      hamBtn.classList.toggle('open');
+      mobMenu.classList.toggle('open');
+      document.body.style.overflow = mobMenu.classList.contains('open') ? 'hidden' : '';
+    });
+  }
+  function closeMobile() {
+    if (hamBtn) hamBtn.classList.remove('open');
+    if (mobMenu) mobMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ─── REVEAL ON SCROLL ─── */
+  var revEls = document.querySelectorAll('.reveal');
+  var revObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  revEls.forEach(function(el) { revObs.observe(el); });
+
+  /* ─── COUNTERS ─── */
+  function animateCounter(el) {
+    var target = parseFloat(el.dataset.count);
+    var suffix = el.dataset.suffix || '';
+    var isFloat = (target % 1) !== 0;
+    var duration = 1800, start = performance.now();
+    function update(now) {
+      var t = Math.min((now - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = (isFloat ? (target * eased).toFixed(1) : Math.round(target * eased)) + suffix;
+      if (t < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+  var cntObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { animateCounter(e.target); cntObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-count]').forEach(function(el) { cntObs.observe(el); });
+
+  /* ─── SERVICE PANELS ─── */
+  function togglePanel(header) {
+    var panel = header.parentElement;
+    var isOpen = panel.classList.contains('open');
+    document.querySelectorAll('.svc-panel').forEach(function(p) { p.classList.remove('open'); });
+    if (!isOpen) panel.classList.add('open');
+  }
+
+  /* ─── SERVICE TABS ─── */
+  function setTab(btn) {
+    document.querySelectorAll('.svc-tab').forEach(function(t) { t.classList.remove('active'); });
+    btn.classList.add('active');
+  }
+
+  /* ─── NEWS FILTERS ─── */
+  document.querySelectorAll('.news-filter').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.news-filter').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+
+  /* ─── VESSEL TICKER ─── */
+  var vesselData = [
+    { name:'MV Atlantic Pioneer', port:'Lagos Port Complex', status:'ARRIVED', cls:'status-in' },
+    { name:'CMA CGM Lagos', port:'Tin Can Island Port', status:'DEPARTED', cls:'status-out' },
+    { name:'MSC Apapa Star', port:'Lekki Deep Sea Port', status:'ARRIVED', cls:'status-in' },
+    { name:'Bourbon Nigeria', port:'Onne Port Complex', status:'AT ANCHOR', cls:'status-anc' },
+    { name:'MV Delta Trader', port:'Delta Port, Warri', status:'DEPARTED', cls:'status-out' }
+  ];
+  var vesselRows = document.querySelectorAll('.vessel-row');
+  var tick = 0;
+  setInterval(function() {
+    vesselRows.forEach(function(row, i) {
+      var v = vesselData[(i + tick) % vesselData.length];
+      row.style.transition = 'opacity .3s';
+      row.style.opacity = '0.3';
+      setTimeout(function() {
+        var n = row.querySelector('.vessel-name');
+        var p = row.querySelector('.vessel-port');
+        var s = row.querySelector('.vessel-status');
+        var time = row.querySelector('.vessel-time');
+        if (n) n.textContent = v.name;
+        if (p) p.textContent = v.port;
+        if (s) { s.textContent = v.status; s.className = 'vessel-status ' + v.cls; }
+        var now = new Date();
+        if (time) time.textContent = String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+        row.style.opacity = '1';
+      }, 300);
+    });
+    tick++;
+  }, 6000);
+
+  /* ─── ACTIVE NAV ─── */
+  var allSections = document.querySelectorAll('section[id]');
+  var allNavLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function() {
+    var current = '';
+    allSections.forEach(function(sec) {
+      if (window.scrollY >= sec.offsetTop - 140) current = sec.id;
+    });
+    allNavLinks.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }, { passive: true });
+
+  /* ─── NAV SEARCH ─── */
+  var navSearch = document.getElementById('navSearch');
+  if (navSearch) {
+    navSearch.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && this.value.trim()) {
+        toast('Searching for "' + this.value.trim() + '"…', '🔍');
+        this.value = '';
+      }
+    });
+  }
+
+  // Public API
+  return {
+    toast: toast,
+    openModal: openModal,
+    closeModal: closeModal,
+    openVideo: openVideo,
+    downloadDoc: downloadDoc,
+    startDownload: startDownload,
+    openTrackModal: openTrackModal,
+    doTrack: doTrack,
+    setMediaTab: setMediaTab,
+    filterDocBtn: filterDocBtn,
+    filterDocs: filterDocs,
+    togglePanel: togglePanel,
+    setTab: setTab,
+    closeMobile: closeMobile
+  };
+})();
+
+/* ── GLOBAL ALIASES so inline onclick="" works everywhere ── */
+function openTrackModal()         { NPA.openTrackModal(); }
+function doTrack()                { NPA.doTrack(); }
+function openVideo(id)            { NPA.openVideo(id); }
+function downloadDoc(name, meta)  { NPA.downloadDoc(name, meta); }
+function startDownload()          { NPA.startDownload(); }
+function setMediaTab(btn, cat)    { NPA.setMediaTab(btn, cat); }
+function filterDocBtn(btn, tag)   { NPA.filterDocBtn(btn, tag); }
+function filterDocs(val)          { NPA.filterDocs(val); }
+function togglePanel(h)           { NPA.togglePanel(h); }
+function setTab(btn)              { NPA.setTab(btn); }
+function closeMobile()            { NPA.closeMobile(); }
+function closeModal(id)           { NPA.closeModal(id); }
+</script>
+</body>
+</html>
